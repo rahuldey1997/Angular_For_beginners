@@ -1,0 +1,132 @@
+<h1>{{title}}</h1>
+<div class="form-container" [ngClass]="{'form-shadow': myForm.touched,'form-background': myForm.dirty}">
+    <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+        <h2>Registration Form</h2>
+        
+        <label for="first-name">First Name:</label>
+        <input type="text" id="first-name" name="firstname" required ngModel #fname="ngModel">
+        <div>
+            <small style="color:red" *ngIf="fname.invalid && fname.touched">*First Name Is A Required Field</small>
+        </div>
+        <label for="last-name">Last Name:</label>
+        <input type="text" id="last-name" name="lastname" required  ngModel #lname="ngModel">
+        <div>
+            <small style="color:red" *ngIf="lname.invalid && lname.touched">*Last Name Is A Required Field</small>
+        </div>
+
+      
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required ngModel #dateob="ngModel">
+            <div>
+                <small style="color:red" *ngIf="dateob.invalid">*Date of Birth Is A Required Field</small>
+            </div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required email ngModel  #eml="ngModel">
+        <div>
+            <small style="color:red" *ngIf="eml.invalid && eml.touched">*Email Is Invalid</small>
+        </div>
+        <label for="username">User Name:</label>
+        <input type="text" id="username" name="username" placeholder="username"  ngModel  #uname="ngModel" required>
+        <div>
+            <small style="color:red" *ngIf="uname.invalid && uname.touched">*Username is Required</small>
+        </div>
+        <button  type="button" class="btn-gen-username" [disabled]="fname.invalid || lname.invalid || dateob.invalid" (click)="generateUserName()">Create A Username</button>
+       <div class="input-box-address" ngModelGroup="address" #addr="ngModelGroup">
+        <label>Address:</label>
+        <input type="text" id="streetaddress-" name="streetadress" placeholder="street-address" ngModel required>
+        <input type="text" id="street-address" name="streetadress2" placeholder="street-address-2" ngModel>
+        <input type="text" id="city" name="city" placeholder="city" ngModel required>
+        <input type="text" id="pin" name="pin" placeholder="Postal Code" ngModel required>
+        <label>Country:</label>
+        <select id="country" name="country" required ngModel>
+            <option value="">Select your country</option>
+            <option value="India">India</option>
+            <option value="USA">United State of America</option>
+            <option value="Canada">Canada</option>
+            <option value="UK">UK</option>
+            <option value="Australia">Australia</option>
+            <option value="Japan">Japan</option>
+        </select>
+        <small *ngIf="addr.invalid && addr.touched" style="color:red">*Some of The address must be invalid</small>
+       </div>
+       
+        
+        <label>Gender:</label>
+        <div class="radio-group" *ngFor="let gen of genders">
+            <input type="radio" [id]="gen.id" name="gender" [value]="gen.value" required ngModel>
+            <label [for]="gen.value">{{gen.display}}</label>
+        </div>
+        
+        <label>Hobbies:</label>
+        <div class="checkbox-group">
+            <input type="checkbox" id="hobby-reading" name="hobbies" value="reading" ngModel>
+            <label for="hobby-reading">Reading</label>
+            
+            <input type="checkbox" id="hobby-traveling" name="hobbies" value="traveling" ngModel>
+            <label for="hobby-traveling">Traveling</label>
+            
+            <input type="checkbox" id="hobby-cooking" name="hobbies" value="cooking" ngModel>
+            <label for="hobby-cooking">Cooking</label>
+            
+            <input type="checkbox" id="hobby-sports" name="hobbies" value="sports" ngModel>
+            <label for="hobby-sports">Sports</label>
+            <!-- Add more checkboxes as needed -->
+        </div>
+        <div class="column">
+            <input type="checkbox"  name="agreement"  [(ngModel)]="IsAgreed">
+            <label for="agreement">I agree to terms & conditions.</label><br>
+        </div>
+        <button type="submit" value="submit" [disabled]="!myForm.valid">Submit</button>
+    </form>
+</div>
+<h3>Resetting template form</h3>
+<h4>Code:</h4>
+<div class="imagecontainer">
+    <img src="\assets\ray-so-export (74).png">
+</div>
+<h3>Setting Some value on submit</h3>
+<h4>Code:</h4>
+<div class="imagecontainer">
+    <img src="\assets\ray-so-export (75).png">
+</div>
+<h1>Retriving FormData</h1>
+<div class="info-container">
+    <div class="info-item">
+        <label > Name:</label>
+        <div>{{firstName | titlecase}} {{lastName | titlecase}}</div>
+    </div>
+
+    <div class="info-item">
+        <label >Email:</label>
+        <div >{{email}}</div>
+    </div>
+
+    <div class="info-item">
+        <label>User Name:</label>
+        <div>{{userName}}</div>
+    </div>
+
+    <div class="info-item">
+        <label >Gender:</label>
+        <div >{{gen | titlecase}}</div>
+    </div>
+
+    <div class="info-item">
+        <label>City:</label>
+        <div >{{city}}</div>
+    </div>
+
+    <div class="info-item">
+        <label >PIN:</label>
+        <div>{{postal}}</div>
+    </div>
+
+    <div class="info-item">
+        <label >Country:</label>
+        <div>{{Country}}</div>
+    </div>
+</div>
+<h3> Codes:</h3>
+<div class="imagecontainer">
+    <img src="\assets\ray-so-export (76).png">
+</div>

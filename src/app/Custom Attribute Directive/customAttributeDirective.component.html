@@ -1,0 +1,28 @@
+<h1>{{title}}</h1>
+<div class="container">
+    <p setBackground>This is a Demo HTML content to understand custom attribute directive in Angular</p>
+  </div>
+ <p>With the help of custom directive can create customise property like our own backgroundColor color etc.</p>
+ <a href="https://www.angularminds.com/blog/creating-custom-directives-in-angular">Click to know more</a>
+
+  <!-- <p>Click on the above line to implement custom directive that will change color of the line</p> -->
+  <!--We want to create a custom attribute directive  setBackground-->
+
+<!--
+import { Directive, ElementRef, /*HostListener,*/ OnInit } from "@angular/core";
+@Directive({
+    selector:'[setBackground]',
+    standalone: true,
+})
+///Now here insteed of writing the logic inside the constructor we can write it inside ngOninit method
+export class SetbackgroundDirective implements OnInit {
+    constructor(private element: ElementRef) {
+    }
+     ngOnInit(){
+
+         this.element.nativeElement.style.backgroundColor='#C8E6C9'
+     }  
+      
+  }
+
+-->

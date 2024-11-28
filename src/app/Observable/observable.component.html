@@ -1,0 +1,82 @@
+<h1>{{title}}</h1>
+<p>We use Observable to perform asynchronous operations and handel asynchronous data</p>
+<p>Observable sends the data in chunks. That is it is streaming the data</p>
+<p>It is not waiting for all the data to be available and then send</p>
+<p>An observable is a function that converts ordinary stream of data into an Observable stream data. You can think of Observable as a wrapper around the ordinary steam of data</p>
+<p>The RxJS (Reactive Extension library for JavaScript) is a JavaScript library, that allows us to work with asynchronous data stream</p>
+<p>RxJs has two main players</p>
+<li>Observable: Stream of data</li>
+<li>Observer: Subscriber</li>
+<p>An observer is an subscriber of observable</p>
+<h4>Note: observable is similar to promish. It will fetch api data.</h4>
+<h3>Creating An observable Simple Observable</h3>
+<img src="\assets\ray-so-export (2).png">
+<div class="console">
+    <div>
+<p>observable.component.ts:29 1</p>
+<p>observable.component.ts:29 2</p>
+<p>observable.component.ts:29 3</p>
+    </div>
+</div>
+<p>In oder to use Observable we have to import RxJS library</p>
+<p>First create a variable: myObservable</p>
+<p>To create a new observale we use Observable constructor: myObservable=new Observable()</p>
+<p>To this Observable constructor we need to pass a call back : myObservable=new Observable(()=>(curly braces)(curly braces))</p>
+<p>This call back will recieve an argument: myObservable=new Observable((observer)=>(curly braces)(curly braces))</p>
+<p>This argument will be injected by RxJS</p>
+<p>This observer is nothing the subscriber which is waiting for the data</p>
+<p>Now emit some data. And to emit some data on this observer we call next method: observer.next('1')</p>
+<p>This Observable will only emit the data if there is some subscriber</p>
+<p>Now creating a subscriber</p>
+<p>Use ngOninit</p>
+<p>In side ngOninit let subscribe this observable</p>
+<p>Say: this.myObsevable.subscribe()</p>
+<p>Now this subscribe methods takes three optional parameter: next, error, complete.This parameters are callback functions</p>
+<p>First taking about next</p>
+<p>This next callback is executed every time this next method returns a value.</p>
+<p>Now specify the call back function: this.myObsevable.subscribe((val)=(curly braces))</p>
+<p> Now simply log that value</p>
+ <h2>Error and Completion of Observable</h2>
+ <p>Previouly we have learn observale is used to handle async data</p>
+ <p>We also learnedan observable emits some data</p>
+ <p>An observable can also emit some error and it also emits some singnal which tells an observable has completed emmiting the data</p>
+ <p>After an error the task get eliminated</p> 
+ <img src="\assets\ray-so-export (6).png">
+ <h3>Console</h3>
+ <div class="console">
+    <div>
+        <p>observable.component.ts:29 1</p>
+        ERROR Error: Please try again later
+        at observable.component.ts:19:36
+        at timer (zone.js:1716:37)
+        at _ZoneDelegate.invokeTask (zone.js:398:33)
+        at core.mjs:14556:55
+        at AsyncStackTaggingZoneSpec.onInvokeTask (core.mjs:14556:36)
+        at _ZoneDelegate.invokeTask (zone.js:397:38)
+        at Object.onInvokeTask (core.mjs:14869:33)
+        at _ZoneDelegate.invokeTask (zone.js:397:38)
+        at _ZoneImpl.runTask (zone.js:158:47)
+        at invokeTask (zone.js:479:34)</div>
+ </div>
+ <h3>Now handelling the error</h3>
+ <img src="\assets\ray-so-export (7).png">
+ <div class="console1">
+    <h4>Console</h4>
+    <div class="console-container1">
+        <p>An alert message will show: please try again later</p>
+        <p>There will be no error displayed in the console</p>       
+ </div>
+ <p>In this way we are handelling the error</p>
+ <h3>Complete</h3>
+ <p>When the observable is done with emiting all the data it can also emit a complete signal</p>
+ <img src="\assets\ray-so-export (8).png">
+ <h4>Console</h4>
+ <div class="console-container2">
+    <div>
+        <p>observable.component.ts:29 1</p>
+<p>observable.component.ts:29 2</p>
+<p>observable.component.ts:29 3</p>  
+<p>observable.component.ts:29 4</p>
+<p>An alert window will display a message:Observable has competed emiting all values</p>  
+ </div>
+ <p>After an error the task is eliminated, if there is complete signal after error then it will not emit any value</p>

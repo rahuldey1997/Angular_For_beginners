@@ -1,0 +1,19 @@
+<h1>{{title}}</h1>
+<div class="course-container">
+    <div class="course-card">
+        <h2>{{course.courseName}}</h2>
+        <div style="text-align: center;" *ngIf="editMode!=false" ><input type="text" [(ngModel)]="course.courseName"></div>
+        <p class="author">Author: {{course.author}}</p>
+        <p class="description">Description:{{course.description}}</p>
+        <p class="details"><strong>Price:</strong> {{course.price}}</p>
+        <p class="details"><strong>Duration:</strong> {{course.duration}}</p>
+        <p class="details"><strong>Type:</strong> {{course.courseType}}</p>
+        <div class="button">
+        <button class="detail" routerLink="/passing-query-parameter-to-routes" *ngIf="editMode!=true">Courses</button>
+        <button class="update" (click)="update()" *ngIf="editMode!=false">Update</button>
+        <button class="edit" (click)="appendQueryParam()" *ngIf="editMode==false">Edit</button>
+        <!-- <button class="edit" [routerLink]="['/courses/course',course.id]" [queryParams]="{edit:true}">Edit</button> -->
+  
+      </div>
+    </div>
+</div>

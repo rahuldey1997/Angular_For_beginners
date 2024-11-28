@@ -1,0 +1,35 @@
+<h1>{{title}}</h1>
+<p>It basically deals with router link</p>
+<p></p>
+<nav>
+    <div class="container">
+        <div class="box" routerLink="/home1">Home</div> 
+        <div class="box" routerLink="about1">About</div> 
+    </div>
+</nav>
+<p>See app.component.html</p>
+<p>In order to show active router link in the global css file create a class them on respective html path add routerLinkActive="class"</p>
+
+<h2>Styling Active link using routerLinkActive</h2>
+<p>See app.component.html</p>
+<p>When the child component is active then the respective paarent componr is also active</p>
+<p>In this case when we use routerLinkActive the property will be both added to child and parent</p>
+<p>So to avoid that we use routerLinkActiveOptions="(curky braces)exact:true(curky braces)"</p>
+<h2>Absolute and Relative route path</h2>
+<div class="container">
+    <div class="absolute">
+        <h3>Absolute routing</h3>
+        <p>When we specify / before a path it uses the absolute path.</p>
+        <p>That is, that path get appended to root url that is localhost4200/child, no matter what is the active routed</p>
+        <p>Here home is absolute path</p>
+        <p>../child it will go 1 level up.</p>
+    </div>
+    <div class="relative">
+        <h3>Relative routing</h3>
+        <p>When we donot specify / before a path it uses the relative path.</p>
+        <p>That is, that path get appended to parent url that is localhost4200/parent/child</p>
+        <p>Here about is relative path</p>
+        <p>./child is considered as relative path not absolute path.</p>
+    </div>
+
+</div>

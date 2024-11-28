@@ -1,0 +1,32 @@
+.notification-wrapper {
+    position: relative;
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .notification-wrapper p {
+    margin: 0;
+    color: #333;
+  }
+  
+  .close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  
+  .btn {
+    background-color: transparent;
+    border: none;
+    color: #999;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .btn:hover {
+    color: #666;
+  }
+  

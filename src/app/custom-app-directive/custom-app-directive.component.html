@@ -1,0 +1,43 @@
+<h1>{{title}}</h1>
+<div class="container" [ngStyle]="{backgroundColor:'pink', color:'white'}">
+    <p>This is demo HTML content to understand how to create custom ngStyle directive in Angular</p>
+</div>
+<p> We want to create a similar custom directive like ngStyle directive</p>
+<h3>Demo</h3>
+<!-- <p appStyle [setStyle]="{backgroundColor:'pink', color:'white'}">This a demo of custom appStyle directive</p> -->
+<p [appStyle]="{backgroundColor:'pink', color:'white'}">This a demo of custom appStyle directive</p>
+<li>Our aim is to use the selector of the the directive as ngStyle</li>
+<li>Whichever html element we use the selector we want to recieve it as an argument of the constructor of the directive</li>
+<li>The private property helps the property accessible throughout the class </li>
+<li>Now we are going to create a property for the directive. Let call this property setStyle</li>
+<li>This property setStyle is a input property</li>
+<li> Now in this property we will use a setter. That is set setStyle</li>
+<li>When we use a setter we can use the property like a method.Internally that will be a property but we can write a logic to set the value of the property using setter</li>
+<li>For this property we will recieve a parameter say styles and it is going to be object</li>
+<li>For the styles parameter we are going to recieve that object.</li>
+<li> From the object we want to get the property name and its value</li>
+<li>In order to do that we are going to pass this object styles to object.entries method</li>
+<li> Object.entries(styles)</li>
+<li>This will return as array.</li>
+<li> The array is [backgroundColor:'pink', color:'white']</li>
+<li>So we have to store that</li>
+<li>Here we have used [setStyle] property of this directive class.How will angular know it will have to look for setStyle property in the style directive class</li>
+<li> For this we have to use the selector of the directive</li>
+<li>We can now loop over this entries using for of loop</li>
+<div>let entries=  Object.entries(styles);
+    for(let entry of entries)
+     this.renderer.setStyle(this.ele.nativeElement,entry[0],entry[1]);
+</div>
+<li> The input method is catching the style directive and the constructor is cathing the html element</li>
+<li>Till now we were using the [setStyle] with the selector to set the style on the html</li>
+<li>Our aim is to use the selector only</li>
+<li>There is two methode to do that.</li>
+<li> Passing the selector in the input as aleis</li>
+<p>This a demo of custom appStyle directive using selector only</p>
+<p>Another way is insteed of calling it setStyle call it as selector name appStyle </p>
+<li>Now we are able to use this appStyle directive like ngStyle</li>
+<h4>Now we want to set the value of a property based on given condition</h4>
+<li> We have defined a condition on ts file.  active: boolean=true; </li>
+<li>We want when active is true  then we want green and when false we want red based on click event</li>
+<p [appStyle]="{backgroundColor:active?'green':'red', color:'white'}">Demo of conditional appStyle with event click</p>
+<button (click)="onclick()">Click</button>

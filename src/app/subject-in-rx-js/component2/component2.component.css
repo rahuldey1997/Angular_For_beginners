@@ -1,0 +1,40 @@
+/* General reset for margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container styling */
+.container {
+    background-color: #a7ebe0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(128, 191, 239, 0.1);
+    padding: 20px 30px;
+    text-align: center;
+    width: 500px;
+}
+
+/* H3 styling */
+.container h3 {
+    font-size: 24px;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+/* Italic text styling */
+.container h3 i {
+    color: #007BFF; /* Primary color */
+    font-style: normal; /* Modern approach can have non-italic style */
+    font-weight: 700; /* Bold text */
+}

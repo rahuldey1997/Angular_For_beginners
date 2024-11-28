@@ -1,0 +1,49 @@
+<h1>{{title}}</h1>
+<p>Different kind of storage soace is available for our data on clint as well as server side, we can choose any of them according to our need and level of transparancy. We use HTML5 web storage to store data in angular</p>
+<h4>What is HTML web storage</h4>
+<p>With web storage, web applications can store data locally within the user's browser. Before HTML5, application data had to be stored in cookies, included in every server request. Web storage is more secure and large amounts of data can be stored locally without affecting website performance.</p>
+<li>localStorage</li>
+<li>sessionStorage</li>
+<p>localStorage and sessionStorage, part of the web storage API, are two great tools to save key/value pairs locally</p>
+<p>The same syntax works for local storage and sessionStorage both</p>
+<h4>What is local storage</h4>
+<p>The localStorage object stores the data with no expiration date. This data will no be deleted when the browser is closed and will be avaiable the next day, week or year</p>
+<p>local storage is property for accessing storage object which is used to store and retrive data from user browser. It is only accessible at clint side not at server side like cookie</p>
+<p>Data storage in local storage is accessible through all pages under same domain, until user doesnot delete it manually. Even though user closes the browser, data will be accessible next time.</p>
+<h4>Checking for support</h4>
+<p>Test for localStorage support by checking if it's available on the window object</p>
+<div class="image-container-1">
+    <img src="\assets\ray-so-export (46).png" alt="">
+</div>
+<h4>Checking for items</h4>
+<p>Here how you can test for the presence of items in the localStorage:</p>
+<div class="image-container-1">
+    <img src="\assets\ray-so-export (47).png" alt="">
+</div>
+<h4>Updating entries</h4>
+<p>Update an entry just as you would create a new one with setItem, but with a key that already exists:</p>
+<p style="color:red">localStorage.setItem(key,"value")</p>
+<h4>Deleting entries</h4>
+<p>Delete an entry with the removeItem method:</p>
+<p style="color:red">localStorage.removeItem(key)</p>
+<h4>Clearing Everything</h4>
+<p>Here how to clear everything that stored in localStorage</p>
+<p style="color:red"> localStorage.clear()</p>
+<h4>Storing Json Objects</h4>
+<p>Only strings can be stored with localStorage or sessionStorage, but you can use JSON.stringify to store more complex objects and JSON.parse to read them:</p>
+<div class="image-container-1">
+    <img src="\assets\ray-so-export (48).png" alt="">
+</div>
+<div class="image-container-1">
+    <img src="\assets\ray-so-export (49).png" alt="">
+</div>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1>Demo</h1>
+<app-comp1></app-comp1>
+<app-comp2></app-comp2>
+<p>After typing on user name click on set data. The data is storred in session storage. Then click on get data. The data will be seen in comp2. Then delete data. The data will be deleted from session storage.</p>
+<div class="image-container-4">
+    <img src="\assets\ray-so-export (50).png" alt="">
+</div>

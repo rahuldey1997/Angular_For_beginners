@@ -1,0 +1,23 @@
+<h1>{{title}}</h1>
+<div class="container">
+    <p>In Angular, when we navigate from one route to another route. there is a sequence of navigation events that gets triggered by Angular router. We can subscribe to these events and execute some logic if we want.</p>
+</div>
+<nav class="navbar">
+    <div class="nav-item" routerLink="home">Home</div>
+    <div class="nav-item" routerLink="contact">Contact</div>
+</nav>
+<div class="gap">
+
+</div>
+<div class="div-img">
+    <div class="image-container-3">
+        <img src="\assets\ray-so-export (55).png" alt="">
+    </div>
+</div>
+<div class="overlay" *ngIf="showLoader">
+    <div class="loader">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>

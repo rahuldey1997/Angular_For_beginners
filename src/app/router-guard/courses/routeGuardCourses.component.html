@@ -1,0 +1,13 @@
+<h1>{{title}}</h1>
+<button class="neon-button" (click)="logOut()">Log Out</button>
+<p></p>
+<div class="course-container">
+    <div class="course-card" *ngFor="let course of courses">
+        <h2>{{course.courseName}}</h2>
+        <p class="author">by {{course.author}}</p>
+        <p class="description">{{course.description}}</p>
+        <p class="details"><strong>Price:</strong> {{course.price}}</p>
+        <p class="details"><strong>Duration:</strong> {{course.duration}}</p>
+        <p class="details"><strong>Type:</strong>{{course.courseType}}</p>    
+ </div>
+</div>

@@ -1,0 +1,20 @@
+
+<h1>{{title}}</h1>
+<p>Dependency injection is a technique in which a class receives its dependencies from external sources rather than creating them itself</p>
+<p></p>
+<div class="container">
+    <app-react></app-react>
+</div>
+<div>
+    <h3>Explanation:</h3>
+    <p>We need to inform angular  we need an instance of react service in our react component</p>
+    <p>For this we need to create a constructor: constructor()</p>
+    <p> As an argument of the constructor lets create a parameter enrollService and this enroll service is of type ReactService: constructor(private enrollService:ReactService)</p>
+    <p>At at-the-rate component providers:[ReactService]</p>
+    <p>Now create a method on export class: OnEnroll()</p>
+    <p>Now: this.enrollService.OnEnrollClicked(this.title)</p>
+    <p>So first we create a constructor, inside the constructor we provided a private parameter and we specified its type as ReactService</p>
+    <p>Then we specified the providers property for the component decorator, which is an array and inside the array we specified the type.</p>
+    <p>Then we create a method and  within the method we are using the instance to call OnEnrollClicked method.</p>
+</div>
+

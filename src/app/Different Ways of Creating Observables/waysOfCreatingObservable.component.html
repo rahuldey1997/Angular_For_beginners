@@ -1,0 +1,46 @@
+<h1>{{title}}</h1>
+<p>There are different ways of creating an observable.</p>
+<h2>Create Method</h2>
+<img src="\assets\ray-so-export (9).png">
+<p></p>
+<div class="console-container">
+    <h3 class="console">Console</h3>
+    <p>Observable Starts</p>
+    <p>A</p>
+    <p>B</p>
+    <p>C</p>
+</div>
+<p>We can handle error and complete like previously</p>
+<p>There are some operators which we can use to Create observable</p>
+<p></p>
+<h2>of operator</h2>
+<img src="\assets\ray-so-export (10).png">
+<div class="console-container">
+    <h3 class="console">Console</h3>
+    <p>Angular is running in development mode.</p>
+       <p>waysOfCreatingObservable.component.ts:26 (5) [1, 2, 6, 7, 8]</p> 
+        <p>waysOfCreatingObservable.component.ts:26 (4) ['A', 'B', 'C', 'D']<p></p>
+</div>
+<p>array1 and array2 has been emmitted</p>
+<p>After that that tis of operator has emmited a complete signal</p>
+<p>Here we are not specifying the complete signal explicitly</p>
+<p>The of operator will emit complete signal after emitting all the data</p>
+<p>It can take any number of arguments</p>
+<p></p>
+<h2>form operator</h2>
+<img src="\assets\ray-so-export (11).png">
+<div class="console-container">
+    <h3 class="console">Console</h3>
+    <p>Angular is running in development mode.</p>
+       <p>1     waysOfCreatingObservable.component.ts:26 </p> 
+        <p>2        waysOfCreatingObservable.component.ts:26 </p>
+        <p>6     waysOfCreatingObservable.component.ts:26 </p> 
+        <p>7        waysOfCreatingObservable.component.ts:26 </p>
+        <p>8     waysOfCreatingObservable.component.ts:26 </p> 
+</div>
+<p>Values of array1  has been emmitted</p>
+<p>After that is form operator has emmited a complete signal</p>
+<p>Here we are not specifying the complete signal explicitly</p>
+<p>The form operator will emit complete signal after emitting all the data</p>
+<p>It can take only one argument, that also should be iterable</p>
+<p>To this form method we can pass promish, to convert the promish into observable</p>

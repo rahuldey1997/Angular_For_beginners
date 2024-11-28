@@ -1,0 +1,120 @@
+<h1>{{title}}</h1>
+<div class="box-deci" style="font-size: 16px;"><h2 style="color: white;">Custom Percentage pipe</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Marks</th>
+            <th>Percentage</th>
+            <th>Gender</th>
+        </tr>
+        <tr *ngFor="let student of students">
+            <td>{{student.id}}</td>
+            <td>{{student.name | titlecase}}</td>
+            <td>{{student.marks}}</td>
+            <td>{{student.marks | percentage: fullMarks: 3}}</td>
+            <td>{{student.gender | uppercase}}</td>
+        </tr>
+        </table>
+        <h1></h1>
+        <img src="assets\ray-so-export(63).png">
+</div>
+<h1>Creating A Filter Pipes</h1>
+<input type="text" placeholder="Search By Gender" [(ngModel)]="filterText">
+<h1></h1>
+<div class="box-deci" style="font-size: 16px;"><h2 style="color: white;">Filter pipe</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Marks</th>
+            <th>Percentage</th>
+            <th>Gender</th>
+        </tr>
+        <tr *ngFor="let student of students|filter:filterText">
+            <td>{{student.id}}</td>
+            <td>{{student.name | titlecase}}</td>
+            <td>{{student.marks}}</td>
+            <td>{{student.marks | percentage: fullMarks: 3}}</td>
+            <td>{{student.gender | uppercase}}</td>
+        </tr>
+        </table>
+        <br><br>
+        <img src="assets\ray-so-export(64).png">
+</div>
+<h1>Pure And Impure Pipes</h1>
+<div class="box-deci" style="font-size: 16px;"><h2 style="color: white;">What is pure pipe</h2>
+    <p>A pure pipe is that pipe which gets called whenever there is pure change on the input value. By default every pipe is a pure pipe.</p>
+    <h2 style="color: white;">What is pure change</h2>
+    <h3 style="color: white">Following changes are considered as pure change in data:</h3>
+    <p>If the pipe is being used on a primitive type like string, number boolean etc and if the value of the primitive type changes, it is considered as a pure change.</p>
+    <p>If the pipe is being used on a reference type input and if the reference of that input changes, than the change is pure change.</p>
+    <h4 style="color:white">Eg: percentage pipe is the pure pipe here.</h4>
+    <span style="color: blue">Note:</span><span>But if the input is the reference type, and only its property value changes and its reference haas not changed, that is not a pure pipe</span>
+    <h2 style="color:white">What is impure pipe</h2>
+    <p>A pipe is impure pipe if it is not pure. An impure pipe gets called for each change detection cycle and it is performed intensive.</p>
+    <p>We can set a pipe impure by setting the meta data pure=false</p>
+    <p>{{one}}</p>
+    <p>{{two}}</p>
+    <p>{{three}}</p>
+    <h2 style="color: white">Why it is not recommended for filtering and shorting</h2>
+    <p>Pure pipe for filtering and shorting data is not recommended bcz sometime we will not get the desired result.</p>
+    <p>In case of impure pipe for filtering and shorting performance is an issue.</p>
+</div>
+<h1></h1>
+<h1></h1>
+<input type="text" placeholder="Search By Gender" [(ngModel)]="filterText">
+<h1></h1>
+<div class="box-deci" style="font-size: 16px;"><h2 style="color: white;"></h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Marks</th>
+            <th>Percentage</th>
+            <th>Gender</th>
+        </tr>
+        <tr *ngFor="let student of students| filter:filterText">
+            <td>{{student.id}}</td>
+            <td>{{student.name | titlecase}}</td>
+            <td>{{student.marks}}</td>
+            <td>{{student.marks | percentage: fullMarks: 3}}</td>
+            <td>{{student.gender | uppercase}}</td>
+        </tr>
+        </table>
+        <br><br>
+        <img src="assets\ray-so-export (65).png">
+</div>
+<h1></h1>
+<div class="form-container">
+    <button *ngIf="!studentAdd" (click)="addStud()">Add User</button>
+  
+    <div *ngIf="studentAdd">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input id="name" [(ngModel)]="name" />
+      </div>
+  
+      <div class="form-group">
+        <label for="id">ID:</label>
+        <input id="id" [(ngModel)]="id" />
+      </div>
+  
+      <div class="form-group">
+        <label for="marks">Marks:</label>
+        <input id="marks" [(ngModel)]="marks" />
+      </div>
+  
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <select id="gender" [(ngModel)]="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+  
+      <button (click)="submit()">Submit</button>
+    </div>
+  </div>
+

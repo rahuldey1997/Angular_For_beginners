@@ -1,0 +1,10 @@
+<h1>{{title}}</h1>
+<div class="course-container">
+    <div class="course-card" *ngFor="let contact of Allcontacts">
+        <h2>{{contact.name}}</h2>
+        <p class="author">Phone: {{contact.phone}}</p>
+        <p class="description">{{contact.description}}</p>
+        <p class="details"><strong>Email:</strong> {{contact.email}}</p>
+        <p class="details"><strong>Address:</strong> {{contact.address}}</p>
+ </div>
+</div>

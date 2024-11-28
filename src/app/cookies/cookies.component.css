@@ -1,0 +1,22 @@
+p, li{
+    font-size: 18px;
+}
+.no{
+    background-color: brown;
+}
+button{
+    width: 50px;
+    height: 30px;
+}
+.image-container-3 {
+    animation: slide 1s ease-out;
+    margin-top: 100px;
+    margin-left: 100px;
+    flex: 1; /* Makes sure all images are evenly distributed */
+    width: 100%; /* Adjust the width of the images as needed */
+}
+
+.image-container-3 img {
+    width: 60%;
+    height: auto; /* Ensures the images maintain their aspect ratio */
+}

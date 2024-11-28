@@ -1,0 +1,17 @@
+<h1>{{title}}</h1>
+<p>It is a built in directive of angular and it is structural directive</p>
+<div class="content">
+    <p>This paragraph will be displayed when Occupation is student</p>
+    <p>This paragraph will be displayed when Occupation is teacher</p>
+    <p>This paragraph will be displayed when Occupation is developer</p>
+    <p>This paragraph will be displayed when Occupation is none of the t</p>
+  </div>
+<p>There is four paragraph. Our requirement is to display one paragraph based on ts expression</p>
+
+<div class="content1" [ngSwitch]="occupation">
+    <p *ngSwitchCase="'student'">This paragraph will be displayed when Occupation is student</p>
+    <p *ngSwitchCase="'teacher'">This paragraph will be displayed when Occupation is teacher</p>
+    <p *ngSwitchCase="'developer'">This paragraph will be displayed when Occupation is developer</p>
+    <p *ngSwitchCase="'default'">This paragraph will be displayed when Occupation is none of the t</p>
+</div>
+  

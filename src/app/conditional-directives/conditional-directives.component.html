@@ -1,0 +1,30 @@
+<h1>{{title}}</h1>
+<div class="video-list">
+    <div>
+        <div class="video-item" *ngFor="let video of videos">
+            <div [appHighlight]="video.likes===mostLikedVideo.likes">
+                <div>
+                    <img [src]="video.thumbnail" [alt]="video.title + ' Thumbnail'">
+                </div>    
+              <div class="video-details">
+                <div class="video-title">{{ video.title }}
+                </div>
+                <div class="video-stats">
+                  <div class=""video-data>
+                    <i class="material-icon">thumb_up</i>{{video.likes}}
+                  </div>
+                  <div class=""video-data>
+                    <i class="material-icon">thumb_down</i>{{video.dislikes}}
+                  </div>
+                  <div class=""video-data>
+                    <i class="material-icon">reply_all</i>{{video.share}}
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <p>We want to show the video with maximum likes</p>
+  <p>The maximum likes has the red border</p>
+  

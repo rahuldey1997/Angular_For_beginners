@@ -1,0 +1,13 @@
+<h1>{{title}}</h1>
+<nav class="navbar">
+    <ul class="nav-links">
+        <li class="nav-item"  routerLinkActive="active" routerLinkActiveOption="exact:true"><a routerLink="/passing-fragments-to-route" fragment="item1">Item1</a></li>
+        <li class="nav-item"  routerLinkActive="active"><a routerLink="/passing-fragments-to-route" fragment="item2">Item2</a></li>
+        <li class="nav-item"  routerLinkActive="active"><a routerLink="/passing-fragments-to-route" fragment="item3">Item3</a></li>   
+    </ul>
+</nav>
+<div class="componentContainer">
+    <item1-route id="item1"></item1-route>
+    <item2-route id="item2"></item2-route>
+    <item3-route id="item3"></item3-route>
+</div>

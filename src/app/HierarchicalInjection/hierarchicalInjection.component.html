@@ -1,0 +1,19 @@
+<h1>{{title}}</h1>
+<p>If we provide a service (e.g UserService) on one component the angular framework will create and inject an instance of that service for the component and its child comopenent</p>
+<p>For example if C is an component and C has child D. D has child E. If we provide an instance on component C, but angular will eject an instance of UserService on B and C as well.</p>
+<p>In the dependency injection we have used the provider array in the coponent decorator.</p>
+<p>Insteed of this we can use it in the parent component.</p>
+<p>So when we are using this providers array in the parent component it creates an instance in its child component that is </p>
+<div class="container">
+    <app-mongodb></app-mongodb>
+</div>
+<h3>Explanation</h3>
+<p>We have to import the service in the parent component</p>
+<p> Then add provider at the component decorator</p>
+<p>Then we need to create a constructor: constructor()</p>
+ <p> As an argument of the constructor lets create a parameter enrollService and this enroll service is of type MongoDbService: constructor(private enrollService:MongoDbService)</p>
+ <p>Then on the child compononent import the service file</p>
+ <p>Then we need to create a constructor: constructor()</p>
+ <p> As an argument of the constructor lets create a parameter enrollService and this enroll service is of type MongoDbService: constructor(private enrollService:MongoDbService)</p>
+ <p>Then we create a method and  within the method we are using the instance to call OnEnrollClicked method.</p>  
+ <div>

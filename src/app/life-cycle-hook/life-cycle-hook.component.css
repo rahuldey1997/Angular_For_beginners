@@ -1,0 +1,114 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    color: #4CAF50;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-top: 20px;
+}
+
+h2, h3 {
+    font-size: 1.75em;
+    margin-top: 20px;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: justify;
+    margin: 10px 20px;
+}
+
+li {
+    margin: 10px 0;
+    padding-left: 20px;
+    font-size: 1.1em;
+}
+
+.hooks {
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    border-radius: 8px;
+}
+
+.hooks h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.hooks h2, .hooks h3 {
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.hooks ul {
+    list-style-type: square;
+    margin: 10px 0 10px 20px;
+}
+
+.hooks ul ul {
+    list-style-type: disc;
+}
+
+.hooks ul li {
+    padding-left: 10px;
+}
+
+.hooks div {
+    margin: 20px 0;
+    padding: 20px;
+    background: #e8f5e9;
+    border-left: 5px solid #4CAF50;
+    border-radius: 4px;
+}
+
+.hooks div p {
+    margin: 0;
+}
+
+.container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.container input[type="text"] {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 80%;
+    max-width: 400px;
+    margin-bottom: 10px;
+}
+
+.container button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.container button:hover {
+    background-color: #45a049;
+}
+
+.ul-class {
+    list-style-type: circle;
+    padding-left: 20px;
+}

@@ -1,0 +1,45 @@
+<h1>{{title}}</h1>
+<app-Add-User></app-Add-User>
+<div class="container">
+    <div class="user-div" *ngFor="let user of users">
+        <div class="user-name">{{user.name}}</div>
+        <div class="user-status">{{user.status}}</div>
+    </div>
+</div>
+<div class="explain">
+    <h3>Explanation</h3>
+    <!-- <div class="image-container">
+        <img src="\assets\ray-so-export.png" alt="">
+    </div> -->
+    <p>Our Targen is to create a service such that it will store the user data and display it</p>
+    <p>First Creating a service.ts file</p>
+    <p>Now creata a class and export it and call it UserService</p>
+    <p>In side this class we created a array of users, inside the array we have list of users  (name and status)</p>
+    <p>Now we want to show the data in the service in our webpage </p>
+    <p>We are going to assign users property of this UserService class to a property in the parent component  </p>
+    <p> Let create a property in parent class say users which will store array of objects</p>
+    <p>users:(curly braces)name:string, status:string(curly braces)[]=[];</p>
+    <p>Now implementing ngOnInit method</p>
+    <p>Inside this ngOnint we want to assign the users property of this parent component class with the users property of UserService class </p>
+    <p>Inorder to do that we need the instance of UserService class in our parent component class. So accesing it with help of constructor: constructor(private userServices:UserService)</p>
+    <p>Now we have the instance of UserService as userservice in parent component class</p>
+    <p>We have tell angular that we need instance of UserService class but we havn't tell angular how it can provide . So in the component metadata add providers array</p>
+    <p>Now we can access this UserService in ngOninit:this.users= this.userServices.users</p>
+    <p>Now in the parent component html file use *ngFor loop to iterate the data and the data will be available in the didplay</p>
+    <p></p>
+    <p> Now our aim is to create a form  that will recieve user entry: add user</p>
+    <p> With the help of two way data binding we can do that</p>
+    <p>In the service.ts flie create a new method say: AddNewUsers</p>
+    <p> This method will push the data </p>
+    <div>AddNewUser(name:string, status:string)(curly braces)
+        this.users.push((curly braces)name:name,status:status(curly braces));
+        (curly braces)</div>
+    </div>
+    <p>Now we have to call this method in add user component</p>
+    <p>We need an instance of UserService class in adduser. So  creating a constructor: constructor(private userService:UserService) </p>
+    <p> Now initially assign the property username with empty  string and status active</p>
+    <p> Now binding the username property with  to the input element using two way data binding [ngModel]="username"</p>
+    <p>Similarly for active status</p>
+    <p> Inorder to activate ngModel we have to import formsmmodule</p>
+    <p> Now create a method AddUser() inside the methods:  this.userService.AddNewUser(this.username, this.status)</p>
+   

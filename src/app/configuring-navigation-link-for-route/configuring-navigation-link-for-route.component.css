@@ -1,0 +1,87 @@
+nav {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+/* Styling for navigation boxes */
+.box {
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.box:hover {
+    background: #555;
+    transform: scale(1.1);
+}
+
+/* Main content area */
+main {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background: #f4f4f4;
+}
+
+.main-content {
+    background: #fff;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box {
+        margin: 0.5rem 0;
+    }
+}
+.container {
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+    gap: 20px;
+}
+
+.absolute, .relative {
+    flex: 1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #d9ef80;
+    transition: transform 0.3s;
+}
+
+.absolute:hover, .relative:hover {
+    transform: translateY(-5px);
+}
+
+.absolute {
+    border-left: 4px solid #007bff;
+}
+
+.relative {
+    border-left: 4px solid #28a745;
+}
+
+p {
+    line-height: 1.6;
+    color: #333;
+}

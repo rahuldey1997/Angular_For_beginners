@@ -1,0 +1,110 @@
+<h1>{{title}}</h1>
+<li class="container"><span style="font-weight: bold;">Api List of Pipes:</span><a href="https://v17.angular.io/api?query=pipe" target="_blank">Click Here</a></li>
+<li class="container">Common<span style="font-weight: bold;">
+<li>AsyncPipe</li>
+<li>DATA_PIPE_DEFAULT_OPTIONS</li>
+<li>DatePipe</li>
+<li>DecimalPipe</li>
+<li>I18nSelectPipe</li>
+<li>KeyValuePipe</li>
+<li>PercentagePipe</li>
+<li>TitleCasePipe</li>
+<li>CurrencyPipe</li>
+<li>DataPipeConfig</li>
+<li>I18nPluralPipe</li>
+<li>JsonPipe</li>
+<li>LowerCasePipe</li>
+<li>SlicePipe</li>
+<li>UpperCasePipe</li>
+</span></li>
+<li class="container">Core<span style="font-weight: bold;">
+    <li>Pipe</li>
+    <li>PipeTransform</li>
+</span></li>
+
+<div class="box-curr" style="font-size: 16px;">UpperCase LoweCase and TitleCase pipe
+    <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color:white">Input value: string</p>
+    <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color:white">Format: value | uppercase</p>
+    <p style="color: rgb(29, 29, 49);">UpperCase: {{Name | uppercase}}</p>
+    <p style="color: rgb(29, 29, 49);">LoweCase: {{Name | lowercase}}</p>
+    <p style="color: rgb(29, 29, 49);">TileCase: {{Name | titlecase}}</p>
+    <img src="assets\ray-so-export (57).png">
+
+</div>
+<h1></h1>
+<div class="box" style="font-size: 16px;">Date pipe
+    <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:white">Inputvalue: string|number|Date</p>
+    <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:white">Format: value | date [:format[:timezone [:locale]]]</p>
+    <p style="color: rgb(29, 29, 49);">Current Complete Date: {{currentDate}}</p>
+    <p style="color: rgb(29, 29, 49);">Current Date: {{currentDate | date}}</p>
+<img src="assets\ray-so-export (58).png">
+</div>
+<h1></h1>
+<div class="box-curr" style="font-size: 16px;">Currency pipe
+    <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:white">Inputvalue: string|number</p>
+    <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:white">Format: value [ : currencyCode [ : display [ : digitsInfo [ : locale ] ] ] ] </p>
+    <p style="color: rgb(29, 29, 49);">Number:{{num}}</p>
+    <p style="color: rgb(29, 29, 49);">Currency: {{num | currency:'INR'}}</p>
+<img src="assets\ray-so-export (59).png">
+</div>
+<h1></h1>
+<div class="box" style="font-size: 16px;">Slice pipe
+    <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:white">Inputvalue: string | readonly T[]</p>
+    <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:white">Format: value | slice : start [ : end ]</p>
+    <p style="color: rgb(29, 29, 49);">Description: {{description}}</p>
+    <p style="color: rgb(29, 29, 49);">Sliced description:{{description | slice:2:10 }}</p>
+<img src="assets\ray-so-export (60).png">
+</div>
+<h1></h1>
+<div class="box-Json" style="font-size: 16px;">Json pipe
+    <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:white">Inputvalue: object|array</p>
+    <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:white">Format: value | json</p>
+    <p style="color: rgb(29, 29, 49);">My Data in Json format: {{MyData | json}}</p>
+<img src="assets\ray-so-export (61).png">
+<table border="1">
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Gender</th>
+</tr>
+<tr *ngFor="let other of otherData">
+    <td>{{other.id}}</td>
+    <td>{{other.name | titlecase}}</td>
+    <td>{{other.gender | uppercase}}</td>
+</tr>
+</table>
+<img src="assets\ray-so-export (62).png">
+</div>
+<h1></h1>
+<div class="box-deci" style="font-size: 16px;">Decimal and Percentage pipe
+    <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:white">Inputvalue: number|string</p>
+    <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:white">Decimal Pipe Format: value | number [ : digitsInfo [ : locale ] ] </p>
+    <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:white">Percentage Pipe Format: value | percent [ : digitsInfo [ : locale ] ]  </p>
+    <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:white">{{DigitsInfo}}</p>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Marks</th>
+            <th>Percentage</th>
+        </tr>
+        <tr *ngFor="let student of students">
+            <td>{{student.id}}</td>
+            <td>{{student.name | titlecase}}</td>
+            <td>{{student.marks}}</td>
+            <td>{{student.marks / fullMark | percent : '1.2-2'}}</td>
+        </tr>
+        </table>
+        <h1></h1>
+        <p style="color: rgb(11, 13, 70)">{{htmlCode}}</p>
+</div>
+<h1>  
+</h1>
+<div class="box-deci" style="font-size: 16px;">
+Async Pipe
+<p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:white">Inputvalue: Observable{{t}} | Subscribable{{t}} | Promise{{t}}</p>
+    <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:white">async Pipe Format: obj_expression | async  </p>
+   <p>The async pipe allows us to handle asynchronous data. It allows us to subscribe to an observablr or promise from the view template and returns the value emitted.</p> 
+<div style="margin:10px 10px">Total Students: {{totalStudent | async}}</div>
+<img src="assets\ray-so-export (66).png">
+</div>

@@ -1,0 +1,215 @@
+<h1>Introduction to Reactive Forms</h1>
+<h3>Why not use normal HTML Form?</h3>
+<p style="text-align: justify; font-size: 20px;">When a Normal HTML form is submitted, it reloads the page by making an HTTP request to the server. Since we create a single page application using Angular we can say that it will restart the complete Angular application.</p>
+<p style="text-align: justify; font-size: 20px;">To avoid this, we need Angular's help to stop this default behaviour. This can be achieved using template driven form or reactive form in Angular. Using any one of these approach makes working with forms easier.</p>
+<h3>Required Module</h3>
+<p style="text-align: justify; font-size: 20px;">To work with forms in Angular, we must import ReactiveFormsModule from {{first}}</p>
+<div class="container" [ngClass]="formStatus">
+    <h2>Registration Form</h2>
+    <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" formControlName="firstName">
+        <small style="color:rgb(245, 5, 41)" *ngIf="reactiveForm.get('firstName').errors?.['required'] && reactiveForm.get('firstName').touched">*First Name is a required field</small>
+        <small style="color:rgb(245, 5, 41)" *ngIf="reactiveForm.get('firstName').errors?.['noSpaceAllowed'] && reactiveForm.get('firstName').touched">*No Space Allowed In Between First Name</small>
+
+      </div>
+      <div>
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" formControlName="lastName">
+        <small style="color:rgb(245, 5, 41)" *ngIf="reactiveForm.get('lastName').errors?.['required'] && reactiveForm.get('lastName').touched">*Last Name is a required field</small>
+        <small style="color:rgb(245, 5, 41)" *ngIf="reactiveForm.get('lastName').errors?.['noSpaceAllowed'] && reactiveForm.get('lastName').touched">*No Space Allowed In Between Last Name</small>
+
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email">
+        <small style="color:rgb(245, 5, 41)" *ngIf="reactiveForm.get('email').invalid && reactiveForm.get('email').touched">*Email is a required field</small>
+      </div>
+      <div>
+        <label for="username">User Name</label>
+        <div class="username-container">
+          <input type="text" id="username" formControlName="username" >
+          <button class="gen-username-btn" type="button" (click)="generateUsername()">Generate</button>
+        </div>
+        <small style="color:rgb(245, 5, 41)" *ngIf="reactiveForm.get('username').invalid && reactiveForm.get('username').touched">*Username is a Taken</small>
+      </div>
+      <div>
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" formControlName="dob">
+      </div>
+      <div>
+        <label>Gender</label>
+        <div class="radio-group">
+          <label><input type="radio" formControlName="gender"  value="male"> Male</label>
+          <label><input type="radio" formControlName="gender" value="female"> Female</label>
+          <label><input type="radio" formControlName="gender"  value="other"> Other</label>
+        </div>
+      </div>
+      <div class="address-container" formGroupName="address">
+        <label style="font-weight: bold;">Address</label>
+        <div>
+          <label for="street">Street Address</label>
+          <input type="text" id="street" formControlName="street" >
+        </div>
+        <small style="color:rgb(245, 5, 41)" *ngIf="reactiveForm.get('address.street').invalid && reactiveForm.get('address.street').touched">*Street is a required field</small>
+        <div>
+          <label for="city">City</label>
+          <input type="text" id="city" formControlName="city" >
+        </div>
+        <div>
+          <label for="postal">Pin Code</label>
+          <input type="number" id="postal" formControlName="postal" >
+        </div>
+        <small style="color:rgb(245, 5, 41)" *ngIf="reactiveForm.get('address.postal').invalid && reactiveForm.get('address.postal').touched">*Email is a required field</small>
+        <div>
+          <label for="country">Country</label>
+          <select id="country" formControlName="country" >
+              <option value="">Select your country</option>
+              <option value="India">India</option>
+            <option value="us">United States</option>
+            <option value="ca">Canada</option>
+            <option value="uk">United Kingdom</option>
+            <option value="au">Australia</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <small style="color:rgb(245, 5, 41)" *ngIf="reactiveForm.get('address.country').invalid && reactiveForm.get('address.country').touched">*Country is a required field</small>
+      </div>
+      <div formArrayName="skills">
+          <div  *ngFor="let skill of reactiveForm.get('skills')['controls']; let i=index">
+          <label>Skills {{i+1}}</label>
+          <input type="text" id="skills" placeholder="Add skill..." style="margin-top: 5px;" [formControlName]="i">
+          <button type="button" style="margin-top: 10px;" class="cool-button-delete" (click)="DeleteSkills(i)">Delete Skills</button>
+        </div>  
+        <button type="button" style="margin-top: 10px;" class="cool-button" (click)="AddSkills()">Add Skills</button>
+      </div>
+      
+      <div formArrayName="experience">
+          <div *ngFor="let exp of reactiveForm.get('experience')['controls']; let i=index" [formGroupName]="i">
+            <div>
+              <label>Experience {{i+1}}</label>
+              <input type="text" id="company" formControlName="company" placeholder="Company Name">
+            </div>
+            <div>
+              <label>Position</label>
+              <select id="position" formControlName="position" >
+                <option value="">Select your Position</option>
+                <option value="HR">HR</option>
+                <option value="manager">Manager</option>
+                <option value="senmanager">Senior Manager</option>
+                <option value="sendev">Senior Developer</option>
+                <option value="jndev">Junior Developer</option>
+                <option value="tl">Team Lead</option>
+              </select>
+            </div>
+            <div>
+              <label >Job Profile</label>
+              <input type="text" id="jobprofile" formControlName="jobprofile" placeholder="Job Profile">
+            </div>
+            <div>
+              <label >Date</label>
+              <input type="date" id="startdate" formControlName="startdate" placeholder="Start Date">
+              <input type="date" id="senddate" formControlName="enddate" placeholder="End Date">
+            </div>
+            <button type="button" style="margin-top: 10px;" class="cool-button-delete" (click)="DeleteExperience(i)">Delete Experience</button>
+          </div>
+          <button type="button" style="margin-top: 10px;" class="cool-button" (click)="AddExperience()">Add Experience</button>
+      </div>
+      <div>
+        <!-- <button class="submit-btn" type="submit" [disabled]="!reactiveForm.valid">Submit</button> -->
+        <button class="submit-btn" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+  <h3>Connecting the form :</h3>
+<div class="imagecontainer1">
+    <img src="\assets\ray-so-export (79).png">
+</div>
+<h3>Setting Default Value:</h3>
+<p style="text-align: justify; font-size: 20px;">After connecting with the formControl we can set the default value.</p>
+<p style="text-align: justify; font-size: 20px;">{{second}}</p>
+ <h3>Accessing forms and value:</h3>
+ <div class="imagecontainer1">
+    <img src="\assets\ray-so-export (80).png">
+</div>
+<h3>Form Validation in Reactive form:</h3>
+<div class="link">
+  <li>To know more about validatore:<a href="https://v17.angular.io/api/forms/Validators"  target="_blank"> Click Here </a></li>
+</div>
+<div class="imagecontainer1">
+  <img src="\assets\ray-so-export (81).png">
+</div>
+<h4>Different Types of validator:</h4>
+<div class="imagecontainer1">
+  <img src="\assets\ray-so-export (82).png">
+</div>
+<h2 style="text-align: left;">Showing Validation Error Message</h2>
+<div class="imagecontainer1">
+  <img src="\assets\ray-so-export (83).png">
+</div>
+<h2 style="text-align: left;">Grouping of Form Controls</h2>
+<div class="imagecontainer1">
+  <img src="\assets\ray-so-export (84).png">
+</div>
+<h2 style="text-align: left;">Creating Using Form Array</h2>
+<h3>What is Form Array?</h3>
+<p>A FormArray is a way to manage a collection of form controls in Angular. The form control can be a FormGroup or another FormArray.</p>
+<p>In Angular, we can group form controls in two ways.</p>
+<li>Using FormGroup</li>
+<li>Using FormArray</li>
+<p>The difference between FormGroup and FormArray is in the way they create the collection.</p>
+<li>FormGroup stores the form controls in the form of key value pair in an object.</li>
+<li>FormArray stores the form control as an element of an array.</li>
+<div class="imagecontainer1">
+  <img src="\assets\ray-so-export (85).png">
+</div>
+<p style="text-align: justify;"><span style="font-weight: bold;">Note:</span>Previously we have seen angular has automatically added state like ng-touched pristine etc. But in array that is not happening.That is because the form control in html is connected tothe form control is ts.In order to connect we need formControlName directive. To this we need to assign name. This form control are generating dynamically. So which name we should provide here. So based on inded we can provide name.</p>
+<h2 style="text-align: left;">Adding Form Control Dynamically</h2>
+<div class="imagecontainer1">
+  <img src="\assets\ray-so-export (86).png">
+</div>
+<h2 style="text-align: left;">Adding Form Group Dynamically</h2>
+<div class="imagecontainer1">
+  <img src="\assets\ray-so-export (87).png">
+</div>
+<h2 style="text-align: left;">Creating A custom Validator</h2>
+<p>We want to create a custom validator which will look at First Name and Last Name, if there is space then it is invalid and if there is no space then it is valid.</p>
+<div class="imagecontainer1">
+  <img src="\assets\ray-so-export (88).png">
+</div>
+<p style="font-size: 20px; font-weight: bold;">Optional Chaining (?):</p>
+<p style="font-size: 18px; text-align: justify;">?. is known as optional chaining. Basically if <span style="font-weight: bold; color: rgb(252, 3, 115)">reactiveForm.get('lastName').errors</span> return null, for example in the first name if we have provided proper first name without any space in that case this errors will be assign with null and when the expression return null or undefined after that we have used optional chaining operator further expression that is <span style="font-weight: bold;">['required']</span> will not be evaluated. If it doesnot return null further expression will be evaluated.</p>
+<h2 style="text-align: left;">Creating  a Custom async Validator</h2>
+<h3>Async Validator?</h3>
+<p style="text-align: justify;font-size: 20px;">We use async validator when we need to send an HTTP request to the server to check if the data entered in a form  element is valid or not.</p>
+<li style="font-size: 20px;">The async validator must return either a promise or an observable.</li>
+<li style="font-size: 20px;">Angular doesnot provide any built-in async validator.</li>
+<div class="imagecontainer">
+  <img src="\assets\ray-so-export (89).png">
+</div>
+<h3>Async Validator Code that will validate user name is taken or not.</h3>
+<div class="imagecontainer1">
+  <img src="\assets\ray-so-export (90).png">
+</div>
+<li style="font-size: 20px; text-align: justify;">FormControl and AbstractControl are imported from Angular's forms module. These classes are used to create and manage form controls and their validation.</li>
+<li style="font-size: 20px; text-align: justify;">CustomValidators is a class that contains static methods for custom validation.</li>
+<li style="font-size: 20px; text-align: justify;">checkUsername is a static method that takes a form control (control) as an argument and returns a Promise. The value of the control (the username) is passed to the userNameAllowed function.</li>
+<li style="font-size: 20px; text-align: justify;">userNameAllowed is a function that checks if the provided username is already taken.</li>
+<li style="font-size: 20px; text-align: justify;">takenUserNames is an array of usernames that are considered already taken.</li>
+<li style="font-size: 20px; text-align: justify;">The function returns a Promise. Inside the Promise, setTimeout is used to simulate an asynchronous operation (e.g., checking the username against a database), delaying the execution by 2000 milliseconds (2 seconds).</li>
+<li style="font-size: 20px; text-align: justify;">After the delay, the function checks if the username exists in the takenUserNames array.</li>
+<li style="font-size: 20px; text-align: justify;">If it does, the promise is resolved with an object  checkUsername: true , indicating that the username is taken.</li>
+<li style="font-size: 20px; text-align: justify;">If it does not, the promise is resolved with null, indicating that the username is available.</li>
+<h4>Summary</h4>
+<p style="font-size: 20px; text-align: justify;">This code defines a custom asynchronous validator in Angular that checks if a username is already taken. It uses a Promise to simulate an asynchronous operation and resolves with an error object if the username is taken or null if it is available. This custom validator can be used in Angular forms to validate usernames against a predefined list.</p>
+<h2 style="text-align: left;">valueChanges & statusChanges Events</h2>
+<h4>The valueChanges Event</h4>
+<div class="imagecontainer">
+  <img src="\assets\ray-so-export (91).png">
+</div>
+<h4>The statusChanges Event</h4>
+<p style="font-size: 20px; text-align: justify;">The statusChanges is an event which is raised by Angular forms whenever Angular calculates the validation status of a FormControl, FormGroup or FormArray changes.</p>
+<div class="imagecontainer">
+  <img src="\assets\ray-so-export (92).png">
+</div>

@@ -1,0 +1,27 @@
+<h1>{{title}}</h1>
+<p>A service is a re-usable TypeScript class in angular that can be used in multiple components across your Angular application</p>
+<p>We have several application in angular application that need to acces data.We can write data in every component. But this approach is very inefficient and breakes the rule pf single responsibility</p>
+<p>So our component must focus on presenting the data. The task of getting data from the backend server must be dedicated to some other class.</p>
+<p>We call such a class as service class</p>
+<p>That is because this class provides a service of providing data that every components needs it</p>
+<p>With the help of services we can communicate between any two components</p>
+<h3>Creating Services</h3>
+<p>Our aim is to create two courses. Onclicking the enroll object it will display alert message. That alert message will come from service</p>
+<div class="container">
+    <app-js></app-js>
+    <app-angular></app-angular>
+</div>
+<p>When we create a component we decorate the component with at-the-rate component decorator and when we create a directive we decorate it with at directive decorator</p>
+<p>We dont have to do anything like this in case of service</p>
+<p>A service class is a simple typescript class without any decorator</p>
+<p> In the service class we are exporting a class: export class EnrollService</p>
+<p> Inside the service class lets create a method call OnEnrollClicked()</p>
+<p>This method recives a parameter say title and it is going to be of type string</p>
+<p>Inside the method we are performing the operation: alert("You have enrolled on "+title)</p>
+<p>Now on respective file we are only importing the EnrollService </p>
+<p>Now we are creating a method say: onEnroll()</p>
+<p> Inside the method  Want to call OnEnrollClicked method</p>
+<p>First we need to create an instance of the class</p>
+<p>So first we need to create a variable  and to create an instance we have to use new followed by the name of the class: const enrollService= new EnrollService()</p>
+<p>On this instance we can call that method and the name of the method is OnEnrollClicked: enrollService.OnEnrollClicked(this.title)</p>
+    

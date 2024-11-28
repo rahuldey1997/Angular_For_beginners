@@ -1,0 +1,35 @@
+.navbar {
+    background-color: #283c2c;
+    padding: 10px 20px;
+    position: fixed;
+    width:100px;
+
+}
+
+/* Navbar unordered list styling */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Navbar list item styling */
+.nav-item {
+    padding: 10px;
+}
+
+/* Navbar link styling */
+.nav-item a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Navbar link hover effect */
+.nav-item a:hover {
+    color: #ff6347; /* Tomato color */
+}
+.componentContainer{
+    display: flex;
+    flex-direction: column;
+}

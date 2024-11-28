@@ -1,0 +1,22 @@
+.container{
+    height:50px;
+    width: 70px;
+    border: 2px solid rgb(23, 71, 43);
+    background-color: aqua;
+    margin-left: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    justify-content: center;
+}
+
+.container-1{
+    height:50px;
+    width: 70px;
+    border: 2px solid rgb(23, 71, 43);
+    margin-left: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    justify-content: center;
+}

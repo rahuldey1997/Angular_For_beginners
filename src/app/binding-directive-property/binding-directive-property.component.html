@@ -1,0 +1,16 @@
+<h1>{{title}}</h1>
+<p> The hostbinding decorator internally set the property  and bind the property with the html element</p>
+<h3>Demo</h3>
+<p>This is a demo of HostBinging and hostlinstner</p>
+<p> Now binding hostlistner and hostbinding property simultaneously</p>
+<div class="container" setHighlightandcolor >
+    <div >Hover over me</div>
+</div> 
+<p>Note:Although the color of the container is set aqua it is showing transparent as in hostbinding use have set the color transparent and same for border</p>
+<p>Here we are hard coding this values</p>
+<p>Our requirement is: The component should pass the value of the bacground color</p>
+<h3>Demo</h3>
+<p>This is a demo of Binding property directive</p>
+<div class="container-1" [setHighlightBorder]="'red'" [defaultColor]="'yellow'" >
+    <div >Hover over me</div>
+</div>

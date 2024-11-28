@@ -1,0 +1,28 @@
+<h1>{{title}}</h1>
+<p>We have learned an observable emits some data. There are some observable which emits data indefinitely. With such observable we have to unsubscribe otherwise it will keep om emiting data.</p>
+<p>We will use interval from rxjs library.</p>
+<p>Interval creates an observable that emits sequential numbers every specified interval of time.</p>
+<h2>Method</h2>
+<p>Lets create a new observable using interval function</p>
+<p>Inorder to use this interval function we have to import interval from from rxjs </p>
+<p>To this interval we have to pass time  : interval(1000)</p>
+<p>This interval will return an observable</p>
+<p>So lets assign a proprty say counterObservable=interval(1000)</p>
+<p>Now create a method say subscribe(), in which let subscribe this counterObservable: this.counterObservable.subscribe()</p>
+<p>To this lets pass the next callback:this.counterObservable.subscribe((val)=>(left curly braces)(rifht curly braces))</p>
+<p>The val will emit the value </p>
+<p>This will emit value indefinitely unless we unsubscribe it</p>
+<p>So assign the observable return by this subscribe method to a property</p>
+<p>Say:counterSub: Subscription = new Subscription; </p>
+<p>Now assign the counterSub property with the  counterObservable:this. counterSub=this.counterObservable.subscribe((val)=>(left curly braces)(rifht curly braces))</p>
+<p>Create another method say unsubscribe()</p>
+<p>To this method now unsubscribe the value: this. counterSub.unsubscribe().</p>
+<p>Now to display the value let declear a property: count:any;</p>
+<p>Then in the next call back acces this and assign the value: this.count=val.</p>
+<p>Note: Number of time we will click on subscribe the data will subscribe that number of time. Say if we click two time, it will subscribe 2 time and emit two data</p>
+<button (click)="subscribe()">Subscribe</button>
+<h3>Count: {{count}}</h3>
+<button (click)="unsubscribe()">Unsubscribe</button>
+<div class="container">
+    <img src="\assets\ray-so-export (26).png">
+</div>

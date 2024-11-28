@@ -1,0 +1,13 @@
+h1 {
+    font-size: 3em;
+    background: linear-gradient(90deg, #06da97, #ee0979);
+    background-clip: text;
+    color: transparent;
+    animation: gradientText 3s ease infinite;
+  }
+  .ellipsis {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%; /* Ensure the container has a width */
+  }

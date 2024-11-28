@@ -1,0 +1,47 @@
+<h1>{{title}}</h1>
+<p>Query parameters are optional parameters that we pass to a route. This query parameters are added at the end of the URL seperated by "?"</p>
+<p>The difference between route parameter and query parameter is, the routes parameters are required and is used by angular router to determine the route and they are part of rout definition</p>
+<p>Query parameter is not a part of rout definition</p>
+<p></p>
+<h2>Courses</h2>
+<div class="course-container">
+    <div class="course-card" *ngFor="let course of courses">
+        <h2>{{course.courseName}}</h2>
+        <p class="author">by {{course.author}}</p>
+        <p class="description">{{course.description}}</p>
+        <p class="details"><strong>Price:</strong> {{course.price}}</p>
+        <p class="details"><strong>Duration:</strong> {{course.duration}}</p>
+        <p class="details"><strong>Type:</strong>{{course.courseType}}</p>
+         <button class="detail" routerLink="/courses/course/{{course.id}}">Show Details</button>       
+ </div>
+</div>
+<h1>Method</h1>
+<p>In the ts file declear a property editMode:boolean=false</p>
+<p>In the html file first create a input box. the input box visibility will depend on editMode. If editmode true then visible else not</p>
+<p>The text in the input box is bind with coursename</p>
+<p>Now create two button edit and update</p>
+<p>When editmode is true then update will be visible and when editMode is false then edit option will be visible</p>
+<p>Now on the edit button we can add router link or use click method</p>
+<p>Declear a method on edit button on click event sat: appendQuery()</p>
+<p>Now declear the property on ts file</p>
+<p>Inside this method we want to use navigate method.</p>
+<p>We have learned in order to use navigate method we need an instance of router class</p>
+<p>So inject an instance of router class : private router:Router</p>
+<p>Now this.router.navogate(['/courses/course',this.courseId], (curly braces), queryParams:(curly braces)edit:true(curly braces)(curly braces))</p>
+<p>On clicking on the edit we can see the extension of the link changes to /courses/course/id?edit=true</p>
+<p>Now based on this true we will show the update edit and input text field.</p>
+<p>We will create an obsersavable in ngOninit to get the value of edit.</p>
+<p>this.route.queryParamMap.subscribe((param)=>(curly braces)
+    this.editMode=Boolean(param.get('edit'))
+(curly braces))</p>
+<p></p>
+<div class="image">
+    <div class="item">
+        <p>---html---</p>
+        <img src="\assets\ray-so-export (34).png">
+    </div>
+    <div class="item">
+        <p>---ts---</p>
+        <img src="\assets\ray-so-export (35).png">
+    </div>
+</div>

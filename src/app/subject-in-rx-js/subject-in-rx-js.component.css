@@ -1,0 +1,23 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 20px;
+    padding: 20px;
+}
+.container div {
+    text-align: center;
+}
+.container img {
+    max-width: 100%;
+    height: auto;
+}
+.service {
+    text-align: center; /* Center the image horizontally */
+}
+
+.service img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover; /* This ensures the aspect ratio is maintained */
+}

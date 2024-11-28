@@ -1,0 +1,31 @@
+<h1>{{title}}</h1>
+<div class="contain">
+    <app-add-user></app-add-user>
+<div class="container">
+    <div class="user-div" *ngFor="let user of users ">
+        <div class="user-name">{{user.name}}</div>
+        <div class="user-status">{{user.status}}</div>
+    </div>
+</div>
+</div>
+<h3>Explanation</h3>
+<p>Create a another service.ts file in service folder</p>
+<p>export class LoggerService(curly braces)
+    LoggerMessage(name:string, status: string)(curly braces)
+        console.log(name, status)
+        (curly braces)
+    (curly braces)</p>
+<p>Now creating an instict on another service where we will inject the LoggerService: constructor(private Logger:LoggerService)</p>
+<p>In service insteed of provider we use injectable. We use injectable  on the service where we are injecting another service.</p>
+<p>Now injecting the what we want to perform: </p>
+<div>
+    AddNewUser(name:string, status:string)(curly braces)
+        this.users.push((curly braces)name:name,status:status(curly braces));
+        (curly braces)
+</div>
+<p>Now providing the service to the parent component</p>
+<p> Fist instanciating with the help of constructor:constructor(private userService:UserInjectingServiceToAnotherService, private LoggerService: LoggerService) </p>
+<p> Now on  another service: this.Logger.LoggerMessage(name, status)
+    </p>
+<p>Importing it and adding it to provide</p>
+<p>See console after adding new user</p>

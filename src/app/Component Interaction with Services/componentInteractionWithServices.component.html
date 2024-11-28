@@ -1,0 +1,41 @@
+<h1>{{title}}</h1>
+<div class="container">
+    <div>
+        <h3>All Users</h3>
+        <app-all-users-component-interaction-services></app-all-users-component-interaction-services>
+    </div>
+    <div>
+        <h3>User Detail</h3>
+        <app-user-detail></app-user-detail> 
+    </div>
+</div>
+<div>
+    <h3>Method</h3>
+    <p>Create a parent component, two child comopent(child1, child 2) and a service.ts file</p>
+    <p>In the services folder create a class call UserService and export this class.</p>
+    <p>Inside the class create a property call users  and this property will store an array of users.</p>
+    <p>Now inject the service in parent component</p>
+    <p>So create a constructor, constructor(private userService: UserService)</p>
+    <p>Now we have instance of service in parent component</p>
+    <p>Secify the provider and import it in parent component</p>
+    <p>In Child 1 define users</p>
+    <p>Now in child 1 create an instance of the UserService constructor, constructor(private userService: UserService) and import it</p>
+    <p>Now implement oninit and on ngOninit this.users=this.userService.users</p>
+    <p>In the Html file of child 1 acces the users using ngFor and display the view</p>
+    <p>Now create an event on the button . (click)="ShowDetails(user) in child component"</p>
+    <p>Now on child 1 create a method ShowDetails(user)</p>
+    <p>Now what do we want to do inside this method.</p>
+    <p>Let Go to the service file and create an event : OnShowDetailsClicked=new EventEmitters ()</p>
+    <p>Now create a method that will raise this event</p>
+    <p>ShowUserDetails(user:)</p>
+    <p>Within this methode let raise the event this.OnShowDetailClicked.emit(user)</p>
+    <p>Now on child 1 inside the method ShowDetails let call tthe method this.userService.ShowUserDetails(user)</p>
+    <p>So when ever the button will be clicked ShowDetails method will be called and withing this ShowDetails we are calling the ShowUserDetails</p>
+    <p>When this ShowUserDetails will be called it will raise an event OnShowDetailClicked which will emit the data</p>
+    <p>Now go to child 2</p>
+    <p>First ask angular to inject the UserService and create an instance of the service: constructor(private userService:UserService)</p>
+    <p>Then create a property caller user and specify its type</p>
+    <p> Now implement NgOninit and on this this.userService.OnShowDetailsClicked.subscribe((data)=> )</p>
+    <p>Now this.user=data</p>
+    <p> Now access the data on html of child 2 </p>
+</div>

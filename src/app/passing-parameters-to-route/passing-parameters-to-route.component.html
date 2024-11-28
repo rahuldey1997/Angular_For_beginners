@@ -1,0 +1,46 @@
+<h1>{{title}}</h1>
+
+<h2>Courses</h2>
+<div class="course-container">
+    <div class="course-card" *ngFor="let course of courses">
+        <h2>{{course.courseName}}</h2>
+        <p class="author">by {{course.author}}</p>
+        <p class="description">{{course.description}}</p>
+        <p class="details"><strong>Price:</strong> {{course.price}}</p>
+        <p class="details"><strong>Duration:</strong> {{course.duration}}</p>
+        <p class="details"><strong>Type:</strong>{{course.courseType}}</p>
+        <button routerLink="/course/{{course.id}}">Show Details</button>
+ </div>
+</div>
+<div>
+    <h2>Method-1</h2>
+    <h3>Using snapshot.paramMap</h3>
+    <p>Create a service file</p>
+    <img src="\assets\ray-so-export (28).png">
+    <p>Create a component say courseComponent and in routing add path and coponents</p>
+    <img src="\assets\ray-so-export (29).png">
+    <p>Then in the main file display the courses</p>
+    <img src="\assets\ray-so-export (30).png">
+    <p>Display it in the view of the html of mail file using ngFor</p>
+    <p>Now in the ts file of courseComponent</p>
+    <img src="\assets\ray-so-export (31).png">
+    <p>First creating an instance of activated route then from this we will get the id of the parameter.</p>
+    <p>For that first we need to access this activated route, this has a snapshot property and on this snapshor property we ha map called paramMap and from this we will get the id using get method</p>
+    <p>Now assign it to courseId</p>
+    <p>Based on this course id we want to get the course from this courses array of this courses class</p>
+    <p>So inject the instance of CoursesService.</p>
+    <p>Now from this courses service from the courses we want to hind the course which id matches with the courseId</p>
+    <p>Now assign it to course.</p>
+    <p> Now display it in the view of courseComponnent</p>
+    <p>Now in the main comonent add show details button with routerLink</p>
+    <img src="\assets\ray-so-export (32).png">
+</div>
+<h2>Method-2</h2>
+<h3>Using Using observable</h3>
+<p>Same as previous</p>
+<p>In the ts file of coursecomponent</p>
+<img src="\assets\ray-so-export (33).png">
+<p>Note:The snapshot property doesnot update the updated value of route parameter</p>
+<p>If /course/1 then we have to go to course/2 the snapshot cannot help is doing so.</p>
+<p> In this case observable is a better approach.</p>
+<p>Moreover we will use observable.</p>

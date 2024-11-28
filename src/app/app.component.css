@@ -1,0 +1,145 @@
+/* 
+ nav {
+    width: 25vh; 
+    height:100%;
+    position: fixed;
+    top: 10px; 
+    left: 2px;
+}
+.container {
+    display: flex;
+    flex-direction: column; 
+    position: relative;
+    height:100%
+
+}
+
+.change-font{
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.box {
+    border-radius: 5px;
+    width: 100%; 
+    padding: 5px; 
+    border: 2px solid #dacecef3;
+    background-color: #dee7e8; 
+    margin-bottom: 10px; 
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.67);
+    text-align: center; 
+    cursor: pointer; 
+}
+
+.box:hover {
+    background-color: #b1b5c2; 
+}
+main {
+    height: 100%;
+    border-radius: 5px;
+    background-color: rgb(245, 246, 246);
+    margin-left: 27vh; 
+    padding: 5px; 
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.67);
+}
+
+.active {
+    font-weight: bold;
+    color: #0056b3;
+}
+
+  */
+  /*body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  
+  nav {
+    width: 250px;
+    height: 100vh;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    border-radius: 5px;
+  }
+  
+  nav .container {
+    width: 100%;
+  }
+  
+  nav .box {
+
+    width: 100%;
+    padding: 5px 5px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: Georgia;
+  }
+  
+  nav .box:hover {
+    background-color: #575757;
+  }
+  
+  main {
+    margin-left:255px ;
+   
+ 
+    height: 100%;
+  }
+
+  .main-content{
+   
+    height: 100%;
+    
+    display: flexbox;
+    border-radius: 5px;
+  }*/
+  body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+  }
+  
+  nav {
+    width: 16%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    border-right: 1px solid #ddd;
+  }
+  
+  main {
+    flex: 1;
+    margin-left: 16%;
+    padding: 20px;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .box {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+  }
+  
+  .box:hover {
+    background-color: #e9ecef;
+  }
+  

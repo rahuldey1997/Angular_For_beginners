@@ -1,0 +1,133 @@
+<h1>{{title}}</h1>
+<p>Angular Route guards can be used to controll whether the user can navigate to or away from the given route based on some condition.</p>
+<h3>Use case of Route Guards</h3>
+<p>To confirm the navigation operation</p>
+<p>Asking whether to save data before moving away from view</p>
+<p>Allow access to certain parts of application to specific users</p>
+<p>Validating the Route parameters before navigating to the route</p>
+<p>Fetching some data before displaying the component view</p>
+<h3>Types of Route Guards</h3>
+<li class="container"><span style="font-weight: bold;">CanActivate:</span>This help to decide whether the route can be activated or not.</li>
+<li class="container"><span style="font-weight: bold;">CanDeactivate:</span>This help to decide whether the route can be activated or not; generally, this is used to warn a user if they are navigating from the component.</li>
+<li class="container"><span style="font-weight: bold;">Resolve:</span>This performs route data retrieval before any activation of the route.</li>
+<li class="container"><span style="font-weight: bold;">CanLoad:</span>Checks to see if the user can navigate to the module which is lazily loading.</li>
+<li class="container"><span style="font-weight: bold;">CanActivateChild:</span>This help to decide whether the child route can be activated or not.</li>
+<h4 style="background-color: #f0f0f0; padding: 10px; border-radius: 5px;">
+    We can use angular CLI command to create a guard:
+    <span style="color: blue; font-weight: bold;">ng g g [guard name]</span>
+</h4>
+
+<h3>How to create a Route Guard</h3>
+<li>Creating a route guard as a service.</li>
+<div class="image-container-1">
+    <img src="\assets\ray-so-export (38).png" alt="">
+</div>
+<li>Implementing the respective route guard interface and the required router guard method.</li>
+<div class="image-container-1">
+    <img src="\assets\ray-so-export (39).png" alt="">
+</div>
+<ul>Within this method a boolean value is returned.</ul>
+<ul>If we return true for this method in that case navigation will continue.</ul>
+<ul>If we return false for this method in that case the navigation process will stop.</ul>
+<li>Use the route guard on the route which we want to guard.</li>
+<div class="image-container-1">
+    <img src="\assets\ray-so-export (40).png" alt="">
+</div>
+<h2>CanActivate Route Guards</h2>
+<p>CanActivate Route Guard decides if a route can be activated or not.</p>
+<p>This route guard can be used in cases where the user is not authorized to navigate to the target route</p>
+<p>From angular 15 the approach is different.</p>
+<div class="image-container-1">
+    <img src="\assets\ray-so-export (41).png" alt="">
+</div> 
+<p>On changing the return value we can stop or navigate routing</p>
+<p>Now Implementing the funtionality of log in and log out</p>
+<p>On clicking on the logIn button we will be redirected to the logIn page.</p>
+<div class="button-container">
+    <button class="neon-button" routerLink="router-guard/LogIn">Log In</button>
+</div>
+<div class="div-img">
+    <div class="image-container-3">
+        <img src="\assets\ray-so-export (42).png" alt="">
+    </div>
+</div>
+<div class="div-img">
+    <div class="image-container-3">
+        <img src="\assets\ray-so-export (43).png" alt="">
+    </div>
+</div>
+<h2>Can Deactivate Route Guard</h2>
+<p>The best use case where we can use CanDeactivate route guard is, when the user has filled a form like registration form and tries to navigate away without submitting. In that case, before navigating the user away, we might want to confirm if he want to submit the data.</p>
+<p>On clicking on the back button </p>
+<div class="button-container">
+    <button class="neon-button" routerLink="router-guard/registration">Registration</button>
+</div>
+<p>Without filling out the full form and submitting we cannot rout to any page. There will be confirm window open. After submiting we can go back.</p>
+<p>This functionality is achieved with the help of CanDeactivateGuard</p>
+<div class="div-img">
+    <div class="image-container-3">
+        <img src="\assets\ray-so-export (44).png" alt="">
+    </div>
+</div>
+<div class="div-img">
+    <div class="image-container-3">
+        <img src="\assets\ray-so-export (45).png" alt="">
+    </div>
+</div>
+<h2>Lazy Loading</h2>
+<p>Lazy loading is a technique in Angular that allows modules to be loaded on-demand, improving application performance by only loading the modules when they are needed.</p>
+<p>Lazy loading is a module on demand. Lazy loading module help us decrease the startup time. With lazy loading our application doesnot need to load everything at once, it only need to load what the user expected to see when the app first loads. Modules thar are lazily loaded will only be loaded when the user navigates to their routes.</p>
+<div class="div-img">
+    <div class="image-container-4">
+        <img src="\assets\ray-so-export (51).png" alt="">
+    </div>
+</div>
+<p>Inside lazy loading module we can have:</p>
+<li>-standalone component</li>
+<li>-regular component --standalone false</li>
+<h4 style="background-color: #f0f0f0; padding: 10px; border-radius: 5px;">
+    To generate a lazy loading module
+    <span style="color: blue; font-weight: bold;">ng g module moduleName --routing</span>
+</h4>
+<h4 style="background-color: #f0f0f0; padding: 10px; border-radius: 5px;">
+    Creating component add-user
+    <span style="color: blue; font-weight: bold;">ng g c router-guard/admin/add-user</span>
+</h4>
+<h4 style="background-color: #f0f0f0; padding: 10px; border-radius: 5px;">
+    Creating component edit-user
+    <span style="color: blue; font-weight: bold;">ng g module router-guard/admin/edit-user</span>
+</h4>
+<div class="button-container">
+    <button class="neon-button" routerLink="admin/add-user">Add User</button>
+</div>
+
+<div class="button-container">
+    <button class="neon-button" routerLink="admin/edit-user">Edit User</button>
+</div>
+<p>As Such we are not seeing any difference in view but the difference is in performane. Without lazy loading the entire application will first load then comes in view.</p>
+<p>But with lazy loading on clicking on Add user the add-user component loads.</p>
+<div class="div-img">
+    <div class="image-container-3">
+        <img src="\assets\ray-so-export (52).png" alt="">
+    </div>
+</div>
+<h1>Pre Loading</h1>
+<h1>Resolve Route</h1>
+<p>Resolve route guard in Angular can be used when we want to load some data before we navigate to a route</p>
+<p>Without resolve route we will get navigated to the page and there will be blank space and after loading there will be data.</p>
+<p>With resolve route we will proceed to the next page when all data is available.</p>
+<div class="button-container">
+    <button class="neon-button" routerLink="router-guard/Contact">Contact</button>
+</div>
+<div class="div-img">
+    <div class="image-container-3">
+        <img src="\assets\ray-so-export (53).png" alt="">
+    </div>
+</div>
+<p>We know the data is available after 5 seconds</p>
+<p>So what we want is, we want to load the data, and once the data is loaded then only we want to navigate the to contact list</p>
+<div class="div-img">
+    <div class="image-container-3">
+        <img src="\assets\ray-so-export (54).png" alt="">
+    </div>
+</div>

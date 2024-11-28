@@ -1,0 +1,56 @@
+<h1>{{title}}</h1>
+<h3>Structural Directive</h3>
+<p>A structural directives manupulates the DOM by adding or removing element to or from the DOM on which we use it</p>
+<p>When we use structural directive we use a * </p>
+<p>Why do we use *? What angular do when it find * behind the scene</p>
+<p>When we use a * before a directive name. This * tell angular that it is a structural directive. Behind the scene the angular creats a template for this structural directives</p>
+<p>Then it wraps the view within the template.</p>
+<!-- <ng-template [ngIf]="display">
+    <div  >
+        <div class="info-container notice">
+        <button class="close" (click)="close()">x</button>
+         <h3>This is important notice</h3>
+        <p>This a notice issued for all website users</p>
+        </div>
+    </div>
+</ng-template> -->
+<p></p>
+<p>Our aim is to show the notification on clicking the show notice button</p>
+<button class="btn btn-notice" (click)="onclick()">Show Notice</button>
+<div  *ngIf="display">
+    <div class="info-container notice">
+    <button class="close" (click)="close()">x</button>
+     <h3>This is important notice</h3>
+    <p>This a notice issued for all website users</p>
+    </div>
+</div>
+<h3>Custom Structural Directive</h3>
+<p>An attribute directive changes the look and behaviour of element on which we use it.</p>
+<p>Structural directive manipulates the DOM by adding or removing elements to or from the DOM on which we use it.</p>
+<p>When we add or remove an element from the DOM we add or remove it at some places on the DOM.</p>
+<p>So in order to create a structural directive we need two things.</p>
+<p>What to remove and from where to remove</p>
+<p>When we use an attribute directive to an html element  in that case in the constructor of that directive we get a reference to that element</p>
+<p>We need that reference in case of structural directive as well.</p>
+<p>But in case of structural directive along with the element on which we have used the structural directive, we also need the container at which the view is present</p>
+
+<button class="btn btn-notice" (click)="onclick1()">Show Notice</button>
+<!-- <div  class="info-container notice" appIf *displayView="display1">   this approach will not work in structural directive -->
+    <div  class="info-container notice" *appIf="display1"> <!--We have to use the passing aleis method-->
+    <h3>This is important notice</h3>
+    <p>This a notice issued for all website users</p>
+
+</div>
+<p>The div where the structural directive is added is the view </p>
+<p>We want this view in the constructor, so that we can manipulate it.</p>
+<p>So angular will inject the view in the constructor as its first argument</p>
+<p>constructor(private template: TemplateRef,private viewContainer:ViewContainerRef)</p>
+<p>Templete is the what to add or remove and viewContainer is the where to add or remove</p>
+<p>Now we have to create an input property</p>
+<p>Input('appIf') set displayView(condition:boolean)</p>
+<p>if condition true then we want to add the view on the DOM else we will remove it</p>
+<p> If true then this.where_to_add..createEmbeddedView(this.what_to_add.);</p>
+<p> else this.viewContainer.clear()</p>
+<p> Now add the selector to container where to add or remove.</p>
+
+

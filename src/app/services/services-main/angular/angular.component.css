@@ -1,0 +1,37 @@
+.course {
+    width:200px;
+    height:200px;
+    gap: 15px;
+    background-color:  #ddd7d7;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    display: flex; /* Use flexbox for horizontal layout */
+    flex-direction: column;
+    justify-content: space-between; /* Align items horizontally */
+    align-items: center; /* Align items vertically */
+    border: 2px solid rgb(149, 149, 200);
+    border-radius: 5px;
+  }
+  
+  .course h2 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .course button {
+    background-color: #007bff;
+    color: rgb(251, 249, 249);
+    border: 2px solid  rgb(131, 6, 6);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer; /* Indicate clickable button */
+  }
+  
+  .course button:hover {
+    background-color: #0062cc; /* Change button color on hover */
+  }
+  img{
+    width:200px;
+    height:100px;
+
+  }

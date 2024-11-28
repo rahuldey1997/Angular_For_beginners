@@ -1,0 +1,154 @@
+<h1>{{title}}</h1>
+<h2>Why not use normal HTML Form?</h2>
+<p style="text-align: justify;">When a normal html form is submitted, it reloads the page by making an HTTP request to the server. Since we create a single page application using angular, we can say that it will start the complete angular application.</p>
+<p style="text-align: justify;">To avoid this, we need angular help to stop this default behaviour. This can be achived using template driven form or reactive form in Angular. Using any one of these two approach makes working with forms easier.</p>
+<h3 style="color:rgb(60, 41, 41)">There are two types of form</h3>
+<li  style="color: rgb(130, 130, 249)"> Template-Driven Form</li>
+    <ul>Simple basic form</ul>
+    <ul>Easy to start with</ul>
+    <ul>Vased on template (HTML)</ul>
+<li style="color: rgb(88, 237, 88)">Reactive Form</li>
+    <ul>Complex form with more control</ul>
+    <ul>Structure of form is defined in Typescript class</ul>    
+<h2  style="color: rgb(130, 130, 249)">Template driven form</h2>
+<h1></h1>
+<div class="form-container" [ngClass]="{'form-shadow': myForm.touched,'form-background': myForm.dirty}">
+    <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+        <h2>Registration Form</h2>
+        
+        <label for="first-name">First Name:</label>
+        <input type="text" id="first-name" name="first-name" required [(ngModel)]="firstName"  #fname="ngModel">
+        <div>
+            <small style="color:red" *ngIf="fname.invalid && fname.touched">*First Name Is A Required Field</small>
+        </div>
+        <label for="last-name">Last Name:</label>
+        <input type="text" id="last-name" name="lastname" required  [(ngModel)]="lastName" #lname="ngModel">
+        <div>
+            <small style="color:red" *ngIf="lname.invalid && lname.touched">*Last Name Is A Required Field</small>
+        </div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required email ngModel  #eml="ngModel">
+        <div>
+            <small style="color:red" *ngIf="eml.invalid && eml.touched">*Email Is Invalid</small>
+        </div>
+       <div class="input-box-address" ngModelGroup="address" #addr="ngModelGroup">
+        <label>Address:</label>
+        <input type="text" id="street-address-" name="street-adress" placeholder="street-address" ngModel required>
+        <input type="text" id="street-address" name="street-adress-2" placeholder="street-address-2" ngModel>
+        <input type="text" id="city" name="city" placeholder="city" ngModel required>
+        <input type="text" id="pin" name="pin" placeholder="Postal Code" ngModel required>
+        <label>Country:</label>
+        <select id="country" name="country" required ngModel>
+            <option value="">Select your country</option>
+            <option value="India">India</option>
+            <option value="usa">USA</option>
+            <option value="canada">Canada</option>
+            <option value="uk">UK</option>
+            <option value="australia">Australia</option>
+        </select>
+        <small *ngIf="addr.invalid && addr.touched" style="color:red">*Some of The address must be invalid</small>
+       </div>
+       
+        
+        <label>Gender:</label>
+        <div class="radio-group" *ngFor="let gen of genders">
+            <input type="radio" [id]="gen.id" name="gender" [value]="gen.value" required ngModel>
+            <label [for]="gen.value">{{gen.display}}</label>
+        </div>
+        
+        <label>Hobbies:</label>
+        <div class="checkbox-group">
+            <input type="checkbox" id="hobby-reading" name="hobbies" value="reading" ngModel>
+            <label for="hobby-reading">Reading</label>
+            
+            <input type="checkbox" id="hobby-traveling" name="hobbies" value="traveling" ngModel>
+            <label for="hobby-traveling">Traveling</label>
+            
+            <input type="checkbox" id="hobby-cooking" name="hobbies" value="cooking" ngModel>
+            <label for="hobby-cooking">Cooking</label>
+            
+            <input type="checkbox" id="hobby-sports" name="hobbies" value="sports" ngModel>
+            <label for="hobby-sports">Sports</label>
+            <!-- Add more checkboxes as needed -->
+        </div>
+        <div class="column">
+            <input type="checkbox"  name="agreement"  [(ngModel)]="IsAgreed">
+            <label for="agreement">I agree to terms & conditions.</label><br>
+        </div>
+        <button type="submit" value="submit" [disabled]="!myForm.valid">Submit</button>
+    </form>
+</div>
+<h1></h1>
+<p>----html-----</p>
+<p>{{one}}</p>
+<p>{{two}}</p>
+<p>---ts---</p>
+<p>{{five}}</p>
+<p>{{three}}</p>
+<p>{{four}}</p>
+<h3>---Method---</h3>
+<li>Import FormsModule.</li>
+<li>The button is type submit.</li>
+<li>It is going to emit submit event.</li>
+<li>To listen to the event bind (ngSubmit) in form</li>
+<li>This event will be raised everytime form is submit.</li>
+<li>When this event happen we want to execute some code.</li>
+<li>Say a method will execute  say onSubmit()</li>
+<li>Now create this method in the component class.</li>
+<li>When ever this method is called we want to log something on console.</li>
+<li>We want to log the form itself.</li>
+<li>We want to log the form so, for the form add template reference variable: #myForm</li>
+<li>This myForm is going to store reference  form</li>
+<li>Now in html: onSubmit(myForm)</li>
+<li>Now in ts:  onSubmit(form:HTMLFormElement)</li>
+<li>Now : console.log(form)</li>
+<li>It is going to log a reference of this form</li>
+<li>We want to log it as javascript object.</li>
+<li>So  to the template reference variable assign ngForm : #myForm="ngForm"</li>
+<li>Now in ts:  onSubmit(form:NgForm) </li>
+<li>Insteed of passing this template reference variable as argumnt to this method we will  ccreate a property in ts and call it  form:NgForm and add: {{five}}</li>
+<li>There is an error in form. So in tsconfig.json  file make strict:false</li>
+<h2>Reading  Data from form.</h2>
+<li>To access any value: {{six}}</li>
+<li>To access any value: this.form.controls['first-name'].value</li>
+<h2>Touched and Dirty Form Property</h2>
+<p> A form is considered as touched if any of its control has been focused. For a touched form its touched property will be true and its untouched property will be false.</p>
+<p>A form control is considered as touched if that form control has been focused. For a touched form control its untouched property will be false.</p>
+<p>We want to add form-shadow class dynamically when the form is touched</p> 
+<p>For this we use ngClass directive</p>  
+<p>Now on the container: [ngClass]="{{back}}'form-shadow': myForm.touched{{front}}"</p> 
+<p>A form is considered dirty when something typed in the form.</p>
+<p>We want to add class form-background based on dirty.</p>
+<p>Now on the container: [ngClass]="{{back}}'form-shadow': myForm.touched{{front}}, 'form-background': myForm.dirty{{front}}"</p>
+<p>Now when we click on any of the field and click outside the form-shadow class is triggered.</p>
+<h2>Working With Radio Button</h2>
+<div class="imagecontainer">
+    <img src="\assets\ray-so-export (77).png">
+</div>
+<h2>Form Validation</h2>
+<p>Make some field required.</p>
+<p>If the required filed there is no input then entire form valid: true.</p>
+<p>Note: for email we need extra validate that is: email in html</p>
+<p>Now till the email is valid the submit button is disabled: {{seven}}</p>
+<h2>Showing Custom Validation Error message</h2>
+<p>In the class of first name some ng-class is given </p>
+<p>Based on which on touching the first name css will be added</p>
+<p>class="ng-untouched ng-pristine ng-invalid"</p>
+<p>This are inbuild classes of angular. It is generated when a form is generated.</p>
+<div>
+    <p>Name: {{firstName}} {{lastName}}</p>  
+</div>
+<div class="imagecontainer">
+    <img src="\assets\ray-so-export (68).png">
+</div>
+<h2>Grouping of Form Controls</h2>
+<p>A FormGroup is a collection of FormControl. It can also contain other FormGroup</p>
+<p>To create a form group, we can use ngModelGroup directive</p>
+<p>We create a FormGroup to organize and manage related Form Controls together. We can track the value and validity state of form control instances present inside a form</p>
+<div class="imagecontainer">
+    <img src="\assets\ray-so-export (69).png">
+</div>
+<h2>Working With Check Boxes</h2>
+<div class="imagecontainer">
+    <img src="\assets\ray-so-export (78).png">
+</div>

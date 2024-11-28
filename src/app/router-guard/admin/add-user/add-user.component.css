@@ -1,0 +1,15 @@
+.form-container button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.form-container .submit-btn {
+    background-color: #28a745;
+    color: #fff;
+    margin-right: 10px;
+}
+.form-container .back-btn {
+    background-color: #dc3545;
+    color: #fff;
+}

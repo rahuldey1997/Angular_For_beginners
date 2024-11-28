@@ -1,0 +1,15 @@
+.box {
+    display: block;
+    width: 100px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #008CBA;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.box:hover {
+    background-color: #005f6b;
+}

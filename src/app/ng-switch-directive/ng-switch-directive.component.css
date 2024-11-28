@@ -1,0 +1,17 @@
+.content {
+    border: 1px solid #ddd;
+    padding: 1em;
+    margin: 1em;
+  }
+  
+  .content p {
+    margin-bottom: 1em;
+  }
+  .content1 {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 1em;
+    margin: 1em;
+    background-color: rgba(104, 196, 139, 0.673);
+  }
+  

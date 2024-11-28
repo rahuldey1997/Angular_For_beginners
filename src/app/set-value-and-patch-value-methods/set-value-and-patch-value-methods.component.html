@@ -1,0 +1,108 @@
+<h1>{{title}}</h1>
+<h2>setValue() method</h2>
+<p>The setValue() method is used to update a form FormControl, FormGroup or FormArray value.</p>
+<p>To setValue() method, we pass an object to update the value of a FormControl, FormGroup or FormArray. The structure of the object must match the structure of the FormControl, FormGroup or FormArray which we are trying to update.</p>
+<p>Any button on form is of submit type. If the type is not given in button it will take type as submit.</p>
+<div class="form-container" [ngClass]="{'form-shadow': myForm.touched,'form-background': myForm.dirty}">
+    <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+        <h2>Registration Form</h2>
+        
+        <label for="first-name">First Name:</label>
+        <input type="text" id="first-name" name="firstname" required [(ngModel)]="firstName"  #fname="ngModel">
+        <div>
+            <small style="color:red" *ngIf="fname.invalid && fname.touched">*First Name Is A Required Field</small>
+        </div>
+        <label for="last-name">Last Name:</label>
+        <input type="text" id="last-name" name="lastname" required  [(ngModel)]="lastName" #lname="ngModel">
+        <div>
+            <small style="color:red" *ngIf="lname.invalid && lname.touched">*Last Name Is A Required Field</small>
+        </div>
+
+      
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required [(ngModel)]="dob" #dateob="ngModel">
+            <div>
+                <small style="color:red" *ngIf="dateob.invalid">*Date of Birth Is A Required Field</small>
+            </div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required email ngModel  #eml="ngModel">
+        <div>
+            <small style="color:red" *ngIf="eml.invalid && eml.touched">*Email Is Invalid</small>
+        </div>
+        <label for="username">User Name:</label>
+        <input type="text" id="username" name="username" placeholder="username"  ngModel  #uname="ngModel" required>
+        <div>
+            <small style="color:red" *ngIf="uname.invalid && uname.touched">*Username is Required</small>
+        </div>
+        <button class="btn-gen-username" [disabled]="fname.invalid || lname.invalid || dateob.invalid" (click)="generateUserName()">Create A Username</button>
+       <div class="input-box-address" ngModelGroup="address" #addr="ngModelGroup">
+        <label>Address:</label>
+        <input type="text" id="streetaddress-" name="streetadress" placeholder="street-address" ngModel required>
+        <input type="text" id="street-address" name="streetadress2" placeholder="street-address-2" ngModel>
+        <input type="text" id="city" name="city" placeholder="city" ngModel required>
+        <input type="text" id="pin" name="pin" placeholder="Postal Code" ngModel required>
+        <label>Country:</label>
+        <select id="country" name="country" required ngModel>
+            <option value="">Select your country</option>
+            <option value="India">India</option>
+            <option value="usa">USA</option>
+            <option value="canada">Canada</option>
+            <option value="uk">UK</option>
+            <option value="australia">Australia</option>
+            <option value="japan">Japan</option>
+        </select>
+        <small *ngIf="addr.invalid && addr.touched" style="color:red">*Some of The address must be invalid</small>
+       </div>
+       
+        
+        <label>Gender:</label>
+        <div class="radio-group" *ngFor="let gen of genders">
+            <input type="radio" [id]="gen.id" name="gender" [value]="gen.value" required ngModel>
+            <label [for]="gen.value">{{gen.display}}</label>
+        </div>
+        
+        <label>Hobbies:</label>
+        <div class="checkbox-group">
+            <input type="checkbox" id="hobby-reading" name="hobbies" value="reading" ngModel>
+            <label for="hobby-reading">Reading</label>
+            
+            <input type="checkbox" id="hobby-traveling" name="hobbies" value="traveling" ngModel>
+            <label for="hobby-traveling">Traveling</label>
+            
+            <input type="checkbox" id="hobby-cooking" name="hobbies" value="cooking" ngModel>
+            <label for="hobby-cooking">Cooking</label>
+            
+            <input type="checkbox" id="hobby-sports" name="hobbies" value="sports" ngModel>
+            <label for="hobby-sports">Sports</label>
+            <!-- Add more checkboxes as needed -->
+        </div>
+        <div class="column">
+            <input type="checkbox"  name="agreement"  [(ngModel)]="IsAgreed">
+            <label for="agreement">I agree to terms & conditions.</label><br>
+        </div>
+        <button type="submit" value="submit" [disabled]="!myForm.valid">Submit</button>
+    </form>
+</div>
+<h3>setValue() method code</h3>
+<div class="imagecontainer">
+    <img src="\assets\ray-so-export (70).png">
+</div>
+<div class="imagecontainer">
+    <img src="\assets\ray-so-export (71).png">
+</div>
+<p style="font-size: 20px;">For getting single value that is username we have to completely write the structure of form. So to avoid this we can use pathValue() method.</p>
+<h2>pathValue() method</h2>
+<p>The patchValue() method is used to update only a subset of the element of FormGroup or FormArray value.</p>
+<p>It will only update the matching objects and ignore the rest.</p>
+<h3>patchValue() method code</h3>
+<div class="imagecontainer">
+    <img src="\assets\ray-so-export (70).png">
+    
+</div>
+<div class="imagecontainer">
+    <img src="\assets\ray-so-export (72).png">
+</div>
+<p style="font-size: 20px;">We can also access the country.</p>
+<div class="imagecontainer">
+    <img src="\assets\ray-so-export (73).png">
+</div>

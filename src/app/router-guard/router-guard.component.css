@@ -1,0 +1,155 @@
+p{
+    font-size: 20px;
+}
+.image-container-1 {
+    width: 400px; /* Adjust as needed */
+    height:200px; /* Adjust as needed */
+     /* Ensure no overflow */
+    display: flex; /* Center the image if it's smaller than the container */
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+}
+
+.image-container-1 img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain; /* Ensures the image scales to fit the container while maintaining its aspect ratio */
+    display: block;
+    
+}
+.button-container {
+    text-align: center;
+}
+
+.innovative-button {
+    background: linear-gradient(45deg, #ff6b6b, #f06595, #cc5de8, #845ef7, #5c7cfa, #339af0, #22b8cf, #20c997, #51cf66, #94d82d, #fcc419, #ff922b);
+    background-size: 200% 200%;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: background-position 0.5s, box-shadow 0.5s;
+}
+
+.innovative-button:hover {
+    background-position: 100% 0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.innovative-button:active {
+    transform: scale(0.95);
+}
+
+.innovative-button:focus {
+    outline: none;
+}
+.neon-button {
+    background: none;
+    color: #ffea00;
+    border: 2px solid #91fb8d;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s, box-shadow 0.3s;
+    z-index: 0;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.neon-button:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent 60%);
+    transition: transform 0.5s;
+    transform: scale(0);
+    z-index: -1;
+}
+
+.neon-button:hover:before {
+    transform: scale(1);
+}
+
+.neon-button:hover {
+    color: #0ff;
+    box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 45px #0ff, 0 0 60px #0ff;
+}
+
+.neon-button:active {
+    transform: scale(0.95);
+}
+
+.neon-button:focus {
+    outline: none;
+}
+.div-img {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px; /* Adjust the gap between images as needed */
+}
+
+.image-container-3 {
+    margin-left: 100px;
+    flex: 1; /* Makes sure all images are evenly distributed */
+    width: 100%; /* Adjust the width of the images as needed */
+}
+
+.image-container-3 img {
+    width: 60%;
+    height: auto; /* Ensures the images maintain their aspect ratio */
+}
+.container {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background: linear-gradient(to right, #4CAF50, #2196F3); /* Gradient background */
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .container:hover {
+    transform: translateY(-5px); /* Lifts container on hover */
+  }
+  
+  .container span {
+    font-weight: bold;
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+  }
+  
+  .container p {
+    margin: 0;
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+  
+  .container:before {
+    content: '\2022'; /* Bullet point */
+    color: #FFC107;
+    margin-right: 10px;
+  }
+  .image-container-4 {
+    margin-left: 100px;
+    flex: 1; /* Makes sure all images are evenly distributed */
+    width: 100%; /* Adjust the width of the images as needed */
+}
+
+.image-container-4 img {
+    width: 70%;
+    height: auto; /* Ensures the images maintain their aspect ratio */
+}
+  

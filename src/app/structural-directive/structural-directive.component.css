@@ -1,0 +1,22 @@
+.btn-notice {
+    background-color: #ffc107;  /* Light orange color */
+    color: #000;               /* Black text color */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .info-container{
+    background-color: rgba(59, 222, 103, 0.819);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 100px;
+    padding: 10px 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+  }
+  .close{
+    background-color: transparent;
+    border: none;
+    text-align: right;
+  }

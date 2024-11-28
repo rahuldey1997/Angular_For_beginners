@@ -1,0 +1,64 @@
+/* Style for the h2 element */
+h2 {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    color: #474641;
+    text-align: center;
+    margin-top: 20px;
+    background-color: rgb(247, 185, 104);
+}
+
+/* General button styling */
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Specific styles for the 'Get Data' button */
+button:nth-of-type(1) {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button:nth-of-type(1):hover {
+    background-color: #45a049;
+}
+
+/* Specific styles for the 'Delete Data' button */
+button:nth-of-type(2) {
+    background-color: #f44336;
+    color: white;
+}
+
+button:nth-of-type(2):hover {
+    background-color: #da190b;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group input[type="text"]:focus {
+    border-color: #66afe9;
+    outline: none;
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+}

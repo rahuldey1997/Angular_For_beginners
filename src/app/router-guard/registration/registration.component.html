@@ -1,0 +1,11 @@
+<div class="form-container">
+    <h2>Register</h2>
+    <form  method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="username" required>
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password" [(ngModel)]="password" required>
+        
+        <button type="submit" class="submit-btn" routerLink="/router-guard"  (click)="onSubmit()">Submit</button>
+    </form>
+</div>

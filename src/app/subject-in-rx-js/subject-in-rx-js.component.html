@@ -1,0 +1,72 @@
+<h1>{{title}}</h1>
+<p>A subject is a special type of observable that allows values to be multicasted to many Observers. Subjects are like EventEmitters</p>
+<p>We use subjects for cross component connection</p>
+<p>Here we want to perform cross component communication between two components which are not related to each other by passing a value from first component to second component</p>
+<app-component1></app-component1>
+<p></p>
+<app-component2></app-component2>
+<p></p>
+<div>
+    <h3>Method</h3>
+    <p>Create a parent component, two child comopent(child1, child 2) and a service.ts file</p>
+    <p>Now go to child 2</p>
+    <p>Then create a property caller inputText and specify its type</p>
+    <p> Now implement NgOninit and on this this.userService.OnShowDetailsClicked.subscribe((data)=> )</p>
+    <p>Now this.inputText=data</p>
+    <p> Now access the bind inputText on html of child 2 </p>
+    <p>On child 1 create a property called enteredText</p>
+    <p>We want to store the value which the user type in the input box of child 1 after clicking a button</p>
+    <p>We can achive this by two way data binding: [(ngModel)]="enteredText" </p>
+    <p> Now create a click event on the button: (click)="onButtonClick()"</p>
+    <p>Now on child 1 create a method called onButtonClicked()</p>
+    <p>We want to pass the value which is assigned to enteredText  property from child 1 to child 2 and then assige to inputText property </p>
+    <p>For that we are going to create a service.</p>
+    <p>Now create a class DataService and export it, then decorate it with at-the-rate injectible()</p>
+    <p>Inside this  service class create an event call  dataEmitter=new.eventEmitter string ()</p>
+    <p>Now create a method that will raise this event: raiseDataEmitterEvent(data:string)</p>
+    <p>Now raise the event: this.dataEmitter.emit(data)</p>
+    <p>In this data service class we have an event and a methid that is raising the event</p>
+    <p>Now inject this event in parent component</p>
+    <p>In provider:[DataService] and import it</p>
+    <p>Create an instance of it : constructor( private dataService: DataService)</p>
+    <p>Now on child 1 create an instance of the service: constructor( private dataService: DataService) </p>
+    <p>Now on onButtonClick(): this.dataService.raiseDataEmitterEvent(this.enteredText).</p>
+    <p>By this we are sending the data to DataService class</p>
+   <p>Now on child 2 create an instance of the service</p>
+   <p>Implement ninit</p>
+    <p>Now: this.dataService.dataEmitter.subscribe()</p>
+    <p>This subscribe method takes a next call back function </p>
+    <p>This callback function recives the value which the observable emits: this.dataService.dataEmitter.subscribe((val)=>this.inputText=val) </p>
+</div>
+<div class="container">
+    <div>
+        <h3>html comp1</h3>
+        <img src="\assets\ray-so-export (17).png" alt="">
+    </div>
+    <div>
+        <h3>html comp2</h3>
+        <img src="\assets\ray-so-export (18).png" alt="">
+    </div>
+    <div>
+        <h3>ts comp1</h3>
+        <img src="\assets\ray-so-export (19).png" alt="">
+    </div>
+    <div>
+        <h3>ts comp2</h3>
+        <img src="\assets\ray-so-export (20).png" alt="">
+    </div>
+    <div>
+        <h3>ts service</h3>
+        <img src="\assets\ray-so-export (21).png" alt="">
+    </div>
+    <div>
+        <h3>ts parent</h3>
+        <img src="\assets\ray-so-export (22).png" alt="">
+    </div>
+</div>
+<p></p>
+<p>Now we can achive the same thing using subject</p>
+<div class="service">
+    <h3>ts service</h3>
+    <img src="\assets\ray-so-export (24).png" alt="">
+</div>
